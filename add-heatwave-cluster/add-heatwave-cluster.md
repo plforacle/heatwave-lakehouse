@@ -52,7 +52,7 @@ In this lab, you will be guided through the following task:
 
 8. Click the **HeatWave** link. Your completed HeatWave Cluster Information section will look like this:
     ![Connect](./images/mysql-heat-cluster-complete.png "mysql heat cluster complete ")
-
+    
 You may now **proceed to the next lab**
 
 ## Acknowledgements

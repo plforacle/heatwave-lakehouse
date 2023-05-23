@@ -25,8 +25,13 @@
         },
 
         {
-          "title": "Lab 3: Add HeatWave Cluster ",
+          "title": "Lab 3: Add HeatWave Cluster",
           "filename": "../../add-heatwave-cluster/add-heatwave-cluster.md"
+        },
+        
+        {
+          "title": "Lab 4: Get Lakehouse Sample Files",
+          "filename": "../../get-lakehouse-files/get-lakehouse-files.md"  
         },
 
         {
@@ -60,8 +65,8 @@
         },
 
         {
-          "title": "Lab 10: Develop MySQL HeatWave Apps with Oracle APEX",
-          "filename": "../../apex-heatwave/apex-heatwave.md"
+          "title": "Lab 10: Develop MySQL HeatWave Apps with LAMP",
+          "filename": "../../develop/develop.md"
         }, 
       
         {
