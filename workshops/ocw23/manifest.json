@@ -30,42 +30,27 @@
         },
         
         {
-          "title": "Lab 4: Get Lakehouse Sample Files",
-          "filename": "../../get-lakehouse-files/get-lakehouse-files.md"  
+          "title": "Lab 4: Create  Files for Lakehouse  ",
+          "filename": "../../create-lakehouse-files/create-lakehouse-files.md"  
         },
 
         {
-          "title": "Lab 4: Test HeatWave Cluster ",
-          "filename": "../../test-heatwave-cluster/test-heatwave-cluster.md"
+          "title": "Lab 5: Load mysql_customer_orders Data into HeatWave Cluster ",
+          "filename": "../../load-db-heatwave-cluster/load-db-heatwave-cluster.md"
         },
 
         {
-          "title": "Lab 5: Load data from OCI Object Store",
+          "title": "Lab 6: Load CSV data from OCI Object Store",
           "filename": "../../load-data/load-data.md"  
         },
 
         {
-          "title": "Lab 6: Run Queries from MySQL Shell  ",
+          "title": "Lab 7: Load Parquet format data directly from Object Store ",
           "filename": "../../run-queries/run-queries.md"
         },
 
         {
-          "title": "Lab 7: Unload one table from HeatWave ",
-          "filename": "../../unload-data/unload-data.md"
-        },
-
-        {
-            "title": "Lab 8: Run Autopilot ",
-            "filename": "../../run-autopilot/run-autopilot.md"
-        },
-
-        {
-          "title": "Lab 9: Re-run queries to show new data in table ",
-          "filename": "../../run-queries/run-queries.md"
-        },
-
-        {
-          "title": "Lab 10: Develop MySQL HeatWave Apps with LAMP",
+          "title": "Lab 8: Develop MySQL HeatWave Apps with LAMP",
           "filename": "../../develop/develop.md"
         }, 
       

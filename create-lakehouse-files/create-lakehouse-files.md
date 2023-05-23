@@ -1,4 +1,4 @@
-# Get Lakehouse Sample Files
+# Load mysql_customer_orders Data into HeatWave Cluster
 
 ![INTRO](./images/underconstruction.jpg " ")
 
