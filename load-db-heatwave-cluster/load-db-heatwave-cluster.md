@@ -82,8 +82,19 @@ In this lab, you will be guided through the following task:
 4. Before running a query, use EXPLAIN to verify that the query can be offloaded to the HeatWave cluster. You should see "Use secondary engine RAPID" in the explain plan. For example:
 
     ```bash
-    <copy>EXPLAIN select `o`.`ORDER_ID` AS `order_id`,`oi`.`LINE_ITEM_ID` AS `line_item_id`,`oi`.`QUANTITY` AS `quantity`,(`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`) AS `order_amount_total`,(`oi`.`QUANTITY` * `c`.`discount`) AS `order_discount_total`,`o`.`ORDER_DATETIME` AS `order_datetime`,`o`.`ORDER_STATUS` AS `order_status`,`ct`.`customer_id` AS `customer_id`,`cus`.`FULL_NAME` AS `customer_full_name`,`cus`.`EMAIL_ADDRESS` AS `customer_email`,`ct`.`redemption_status` AS `redemption_status`,(case when (`ct`.`redemption_status` = 1) then 'REDEEMED' else 'NOT USED' end) AS `coupon_redemption_status`,`p`.`PRODUCT_ID` AS `product_id`,`p`.`PRODUCT_NAME` AS `product_name`,`p`.`UNIT_PRICE` AS `unit_price`,`c`.`coupon_id` AS `coupon_id`,`c`.`title` AS `title`,`c`.`discount` AS `discount`,`ci`.`product_id` AS `coupon_product_id`,`cd`.`promotion_id` AS `promotion_id`,`cd`.`promotion_type` AS `promotion_type`,`cd`.`start_date` AS `start_date`,`cd`.`end_date` AS `end_date` from (((((((`coupon` `c` join `coupon_tracking` `ct` on((`ct`.`coupon_id` = `c`.`coupon_id`))) join `promotion_data` `cd` on((`cd`.`promotion_id` = `ct`.`promotion_id`))) join `customers` `cus` on((`cus`.`CUSTOMER_ID` = `ct`.`customer_id`))) join `coupon_product_mapping` `ci` on((`ci`.`coupon_id` = `ct`.`coupon_id`))) join `products` `p` on((`p`.`PRODUCT_ID` = `ci`.`product_id`))) join `orders` `o` on(((`o`.`CUSTOMER_ID` = `ct`.`customer_id`) and (`o`.`ORDER_DATETIME` >= `cd`.`start_date`)))) join `order_items` `oi` on(((`oi`.`PRODUCT_ID` = `ci`.`product_id`) and (`oi`.`ORDER_ID` = `o`.`ORDER_ID`)))) order by `ct`.`customer_id`,`o`.`ORDER_ID`,`oi`.`LINE_ITEM_ID`,`ct`.`coupon_id`,`ct`.`promotion_id`;
- 
+    <copy>EXPLAIN  
+    select `o`.`ORDER_ID` AS `order_id`,`o`.`ORDER_DATETIME` AS `ORDER_DATETIME`,
+	    `o`.`ORDER_STATUS` AS `order_status`, `c`.`CUSTOMER_ID` AS `customer_id`,
+	    `c`.`EMAIL_ADDRESS` AS `email_address`,`c`.`FULL_NAME`  AS `full_name`,
+	    sum((`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`)) AS `order_total`,
+	    `p`.`PRODUCT_NAME` AS `product_name`,`oi`.`LINE_ITEM_ID` AS `LINE_ITEM_ID`,
+	    `oi`.`QUANTITY`  AS `QUANTITY`,`oi`.`UNIT_PRICE` AS `UNIT_PRICE` 
+    from (((`orders` `o` join `order_items` `oi` on((`o`.`ORDER_ID` = `oi`.`ORDER_ID`))) 
+	    join `customers` `c` on((`o`.`CUSTOMER_ID` = `c`.`CUSTOMER_ID`))) 
+	    join `products` `p` on((`oi`.`PRODUCT_ID` = `p`.`PRODUCT_ID`))) 
+    group by `o`.`ORDER_ID`,`o`.`ORDER_DATETIME`,`o`.`ORDER_STATUS`,`c`.`CUSTOMER_ID`
+	    ,`c`.`EMAIL_ADDRESS` ,`c`.`FULL_NAME`,`p`.`PRODUCT_NAME`
+        ,`oi`.`LINE_ITEM_ID`,`oi`.`QUANTITY`,`oi`.`UNIT_PRICE` limit 10;
     </copy>
     ```
 
@@ -92,7 +103,18 @@ In this lab, you will be guided through the following task:
 5. After verifying that the query can be offloaded, run the query and note the execution time. Enter the following command at the prompt:
 
      ```bash
-    <copy>select `o`.`ORDER_ID` AS `order_id`,`oi`.`LINE_ITEM_ID` AS `line_item_id`,`oi`.`QUANTITY` AS `quantity`,(`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`) AS `order_amount_total`,(`oi`.`QUANTITY` * `c`.`discount`) AS `order_discount_total`,`o`.`ORDER_DATETIME` AS `order_datetime`,`o`.`ORDER_STATUS` AS `order_status`,`ct`.`customer_id` AS `customer_id`,`cus`.`FULL_NAME` AS `customer_full_name`,`cus`.`EMAIL_ADDRESS` AS `customer_email`,`ct`.`redemption_status` AS `redemption_status`,(case when (`ct`.`redemption_status` = 1) then 'REDEEMED' else 'NOT USED' end) AS `coupon_redemption_status`,`p`.`PRODUCT_ID` AS `product_id`,`p`.`PRODUCT_NAME` AS `product_name`,`p`.`UNIT_PRICE` AS `unit_price`,`c`.`coupon_id` AS `coupon_id`,`c`.`title` AS `title`,`c`.`discount` AS `discount`,`ci`.`product_id` AS `coupon_product_id`,`cd`.`promotion_id` AS `promotion_id`,`cd`.`promotion_type` AS `promotion_type`,`cd`.`start_date` AS `start_date`,`cd`.`end_date` AS `end_date` from (((((((`coupon` `c` join `coupon_tracking` `ct` on((`ct`.`coupon_id` = `c`.`coupon_id`))) join `promotion_data` `cd` on((`cd`.`promotion_id` = `ct`.`promotion_id`))) join `customers` `cus` on((`cus`.`CUSTOMER_ID` = `ct`.`customer_id`))) join `coupon_product_mapping` `ci` on((`ci`.`coupon_id` = `ct`.`coupon_id`))) join `products` `p` on((`p`.`PRODUCT_ID` = `ci`.`product_id`))) join `orders` `o` on(((`o`.`CUSTOMER_ID` = `ct`.`customer_id`) and (`o`.`ORDER_DATETIME` >= `cd`.`start_date`)))) join `order_items` `oi` on(((`oi`.`PRODUCT_ID` = `ci`.`product_id`) and (`oi`.`ORDER_ID` = `o`.`ORDER_ID`)))) order by `ct`.`customer_id`,`o`.`ORDER_ID`,`oi`.`LINE_ITEM_ID`,`ct`.`coupon_id`,`ct`.`promotion_id`;
+    <copy> select `o`.`ORDER_ID` AS `order_id`,`o`.`ORDER_DATETIME` AS `ORDER_DATETIME`,
+	    `o`.`ORDER_STATUS` AS `order_status`, `c`.`CUSTOMER_ID` AS `customer_id`,
+	    `c`.`EMAIL_ADDRESS` AS `email_address`,`c`.`FULL_NAME`  AS `full_name`,
+	    sum((`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`)) AS `order_total`,
+	    `p`.`PRODUCT_NAME` AS `product_name`,`oi`.`LINE_ITEM_ID` AS `LINE_ITEM_ID`,
+	    `oi`.`QUANTITY`  AS `QUANTITY`,`oi`.`UNIT_PRICE` AS `UNIT_PRICE` 
+    from (((`orders` `o` join `order_items` `oi` on((`o`.`ORDER_ID` = `oi`.`ORDER_ID`))) 
+	    join `customers` `c` on((`o`.`CUSTOMER_ID` = `c`.`CUSTOMER_ID`))) 
+	    join `products` `p` on((`oi`.`PRODUCT_ID` = `p`.`PRODUCT_ID`))) 
+    group by `o`.`ORDER_ID`,`o`.`ORDER_DATETIME`,`o`.`ORDER_STATUS`,`c`.`CUSTOMER_ID`
+	    ,`c`.`EMAIL_ADDRESS` ,`c`.`FULL_NAME`,`p`.`PRODUCT_NAME`
+        ,`oi`.`LINE_ITEM_ID`,`oi`.`QUANTITY`,`oi`.`UNIT_PRICE` limit 10;
     </copy>
     ```
 
@@ -111,7 +133,18 @@ In this lab, you will be guided through the following task:
 7. Enter the following command at the prompt:
 
      ```bash
-    <copy>select `o`.`ORDER_ID` AS `order_id`,`oi`.`LINE_ITEM_ID` AS `line_item_id`,`oi`.`QUANTITY` AS `quantity`,(`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`) AS `order_amount_total`,(`oi`.`QUANTITY` * `c`.`discount`) AS `order_discount_total`,`o`.`ORDER_DATETIME` AS `order_datetime`,`o`.`ORDER_STATUS` AS `order_status`,`ct`.`customer_id` AS `customer_id`,`cus`.`FULL_NAME` AS `customer_full_name`,`cus`.`EMAIL_ADDRESS` AS `customer_email`,`ct`.`redemption_status` AS `redemption_status`,(case when (`ct`.`redemption_status` = 1) then 'REDEEMED' else 'NOT USED' end) AS `coupon_redemption_status`,`p`.`PRODUCT_ID` AS `product_id`,`p`.`PRODUCT_NAME` AS `product_name`,`p`.`UNIT_PRICE` AS `unit_price`,`c`.`coupon_id` AS `coupon_id`,`c`.`title` AS `title`,`c`.`discount` AS `discount`,`ci`.`product_id` AS `coupon_product_id`,`cd`.`promotion_id` AS `promotion_id`,`cd`.`promotion_type` AS `promotion_type`,`cd`.`start_date` AS `start_date`,`cd`.`end_date` AS `end_date` from (((((((`coupon` `c` join `coupon_tracking` `ct` on((`ct`.`coupon_id` = `c`.`coupon_id`))) join `promotion_data` `cd` on((`cd`.`promotion_id` = `ct`.`promotion_id`))) join `customers` `cus` on((`cus`.`CUSTOMER_ID` = `ct`.`customer_id`))) join `coupon_product_mapping` `ci` on((`ci`.`coupon_id` = `ct`.`coupon_id`))) join `products` `p` on((`p`.`PRODUCT_ID` = `ci`.`product_id`))) join `orders` `o` on(((`o`.`CUSTOMER_ID` = `ct`.`customer_id`) and (`o`.`ORDER_DATETIME` >= `cd`.`start_date`)))) join `order_items` `oi` on(((`oi`.`PRODUCT_ID` = `ci`.`product_id`) and (`oi`.`ORDER_ID` = `o`.`ORDER_ID`)))) order by `ct`.`customer_id`,`o`.`ORDER_ID`,`oi`.`LINE_ITEM_ID`,`ct`.`coupon_id`,`ct`.`promotion_id`;
+    <copy> select `o`.`ORDER_ID` AS `order_id`,`o`.`ORDER_DATETIME` AS `ORDER_DATETIME`,
+	    `o`.`ORDER_STATUS` AS `order_status`, `c`.`CUSTOMER_ID` AS `customer_id`,
+	    `c`.`EMAIL_ADDRESS` AS `email_address`,`c`.`FULL_NAME`  AS `full_name`,
+	    sum((`oi`.`QUANTITY` * `oi`.`UNIT_PRICE`)) AS `order_total`,
+	    `p`.`PRODUCT_NAME` AS `product_name`,`oi`.`LINE_ITEM_ID` AS `LINE_ITEM_ID`,
+	    `oi`.`QUANTITY`  AS `QUANTITY`,`oi`.`UNIT_PRICE` AS `UNIT_PRICE` 
+    from (((`orders` `o` join `order_items` `oi` on((`o`.`ORDER_ID` = `oi`.`ORDER_ID`))) 
+	    join `customers` `c` on((`o`.`CUSTOMER_ID` = `c`.`CUSTOMER_ID`))) 
+	    join `products` `p` on((`oi`.`PRODUCT_ID` = `p`.`PRODUCT_ID`))) 
+    group by `o`.`ORDER_ID`,`o`.`ORDER_DATETIME`,`o`.`ORDER_STATUS`,`c`.`CUSTOMER_ID`
+	    ,`c`.`EMAIL_ADDRESS` ,`c`.`FULL_NAME`,`p`.`PRODUCT_NAME`
+        ,`oi`.`LINE_ITEM_ID`,`oi`.`QUANTITY`,`oi`.`UNIT_PRICE` limit 10;
     </copy>
     ```
 
