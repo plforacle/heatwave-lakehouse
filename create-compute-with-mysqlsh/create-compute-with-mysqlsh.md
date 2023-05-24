@@ -136,7 +136,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
     ![CONNECT](./images/compute-running.png "compute running")
 
-## Task 3: Connect to MySQL Database System and Create and Load DB schema
+## Task 3: Connect to Compute and Install MySQl Shell
 
 1. Copy the public IP address of the active Compute Instance to your notepad
 
@@ -193,34 +193,6 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
     ![CONNECT](./images/connect-shell.png "connect shell")
 
-5. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
-
-    (Example  **mysqlsh -uadmin -p -h10.0.1..   --sql**)
-
-    **[opc@...]$**
-
-    ```bash
-    <copy>mysqlsh -uadmin -p -h 10.0.1.... --sql</copy>
-    ```
-
-    ![CONNECT](./images/connect-myslqsh.png "connect myslqsh")
-
-6. List schemas in your heatwave instance
-
-    ```bash
-        <copy>show databses;</copy>
-    ```
-
-    ![CONNECT](./images/list-schemas-before.png "list schemas before")
-
-
-7. View  the mysql\_customer\_orders total records per table in
-
-    ```bash
-    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql_customer_orders';</copy>
-    ```
-
-    ![CONNECT](./images/mysql_customer_orders-list.png "mysql_customer_orderslist")
 
 You may now **proceed to the next lab**
 

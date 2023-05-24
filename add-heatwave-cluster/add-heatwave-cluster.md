@@ -1,4 +1,4 @@
-# Create Mysql HeatWave Cluster
+# Create Mysql HeatWave Cluster and test MySQl Shell
 
 ## Introduction
 
@@ -52,7 +52,38 @@ In this lab, you will be guided through the following task:
 
 8. Click the **HeatWave** link. Your completed HeatWave Cluster Information section will look like this:
     ![Connect](./images/mysql-heat-cluster-complete.png "mysql heat cluster complete ")
-    
+
+## Task 2: Connect to database using MySQL Shell
+
+1. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
+
+    (Example  **mysqlsh -uadmin -p -h10.0.1..   --sql**)
+
+    **[opc@...]$**
+
+    ```bash
+    <copy>mysqlsh -uadmin -p -h 10.0.1.... --sql</copy>
+    ```
+
+    ![CONNECT](./images/connect-myslqsh.png "connect myslqsh")
+
+2. List schemas in your heatwave instance
+
+    ```bash
+        <copy>show databses;</copy>
+    ```
+
+    ![CONNECT](./images/list-schemas-before.png "list schemas before")
+
+
+3. View  the mysql\_customer\_orders total records per table in
+
+    ```bash
+    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql_customer_orders';</copy>
+    ```
+
+    ![CONNECT](./images/mysql_customer_orders-list.png "mysql_customer_orderslist")
+
 You may now **proceed to the next lab**
 
 ## Acknowledgements

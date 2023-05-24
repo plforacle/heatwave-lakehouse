@@ -20,20 +20,20 @@
         },
 
         {
-          "title": "Lab 2: Create Compute and Connect to MySQL HeatWave",
-          "filename": "../../create-compute-connect-dbs/create-compute-connect-dbs.md"
+          "title": "Lab 2: Create Compute with MySQL Shell",
+          "filename": "../../create-compute-with-mysqlsh/create-compute-with-mysqlsh.md"
         },
 
         {
-          "title": "Lab 3: Add HeatWave Cluster",
-          "filename": "../../add-heatwave-cluster/add-heatwave-cluster.md"
-        },
-        
-        {
-          "title": "Lab 4: Create and store data for Lakehouse",
+          "title": "Lab 3: Create and store data for Lakehouse",
           "filename": "../../create-lakehouse-files/create-lakehouse-files.md"  
         },
 
+        {
+          "title": "Lab 4: Add HeatWave Cluster and Test MySQL Shell",
+          "filename": "../../add-heatwave-cluster/add-heatwave-cluster.md"
+        },
+        
         {
           "title": "Lab 5: Load mysql_customer_orders Data into HeatWave Cluster ",
           "filename": "../../load-db-heatwave-cluster/load-db-heatwave-cluster.md"
@@ -50,7 +50,7 @@
         },
 
         {
-          "title": "Lab 8: Develop MySQL HeatWave Apps with LAMP",
+          "title": "Lab 8: Develop MySQL HeatWave Apps with LAMP (Bonus)",
           "filename": "../../develop/develop.md"
         }, 
       
