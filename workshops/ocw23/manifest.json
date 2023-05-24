@@ -46,7 +46,7 @@
 
         {
           "title": "Lab 7: Load Parquet format data directly from Object Store ",
-          "filename": "../../run-queries/run-queries.md"
+          "filename": "../../load-parquet-data/load-parquet-data.md"
         },
 
         {

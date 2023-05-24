@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Use HeatWave For Application Development",
+  "workshoptitle": "Get Started with HeatWave Lakehouse",
     "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
         {
@@ -25,39 +25,33 @@
         },
 
         {
-          "title": "Lab 3: Test HeatWave Cluster ",
-          "filename": "../../test-heatwave-cluster/test-heatwave-cluster.md"
+          "title": "Lab 3: Add HeatWave Cluster",
+          "filename": "../../add-heatwave-cluster/add-heatwave-cluster.md"
         },
-
-
+        
         {
-          "title": "Lab 4: Load data from OCI Object Store",
-          "filename": "../../load-data/load-data.md"  
-        },
-
-        {
-          "title": "Lab 5: Run Queries from MySQL Shell  ",
-          "filename": "../../run-queries/run-queries.md"
+          "title": "Lab 4: Create and store data for Lakehouse",
+          "filename": "../../create-lakehouse-files/create-lakehouse-files.md"  
         },
 
         {
-          "title": "Lab 6: Unload one table from HeatWave ",
-          "filename": "../../unload-data/unload-data.md"
+          "title": "Lab 5: Load mysql_customer_orders Data into HeatWave Cluster ",
+          "filename": "../../load-db-heatwave-cluster/load-db-heatwave-cluster.md"
         },
 
         {
-            "title": "Lab 7: Run Autopilot ",
-            "filename": "../../run-autopilot/run-autopilot.md"
+          "title": "Lab 6: Load CSV data from OCI Object Store",
+          "filename": "../../load-csv-data/load-csv-data.md"  
         },
 
         {
-          "title": "Lab 8: Re-run queries to show new data in table ",
-          "filename": "../../run-queries/run-queries.md"
+          "title": "Lab 7: Load Parquet format data directly from Object Store ",
+          "filename": "../../load-parquet-data/load-parquet-data.md"
         },
 
         {
-          "title": "Lab 9: Develop MySQL HeatWave Apps with Oracle APEX",
-          "filename": "../../apex-heatwave/apex-heatwave.md"
+          "title": "Lab 8: Develop MySQL HeatWave Apps with LAMP",
+          "filename": "../../develop/develop.md"
         }, 
       
         {
