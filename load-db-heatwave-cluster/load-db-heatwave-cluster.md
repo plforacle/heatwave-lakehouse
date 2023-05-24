@@ -1,4 +1,4 @@
-# Test Mysql HeatWave Cluster 
+# Test Mysql HeatWave Cluster
 
 ## Introduction
 
