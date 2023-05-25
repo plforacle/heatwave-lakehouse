@@ -82,7 +82,7 @@ In this lab, you will be guided through the following task:
     <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql_customer_orders';</copy>
     ```
 
-    ![CONNECT](./images/mysql_customer_orders-list.png "mysql_customer_orderslist")
+    ![CONNECT](./images/mysql-customer-orders-list.png.png "mysql-customer-orders-list")
 
 You may now **proceed to the next lab**
 
