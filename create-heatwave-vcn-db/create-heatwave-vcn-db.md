@@ -237,28 +237,91 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave](./images/mysql-host.png "mysql host ")
 
-14. Set Data Import Link
-    - Select Data Import Tab
-    - Add the PAR source URL if your Home Region is Ashburn
+14. Select Data Import tab. 
 
-        ```bash
-        <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/nhiMwiAomns-MaHZdulEepNmVIgC97Sr0Bom6lTjZApXyR7coAiHLtSZDq3q4SXP/n/mysqlpm/b/plf_mysql_customer_orders/o/mco_dump_02102023/</copy> 
-        ```
+15. Use the Image below identify your OCI Region.
+
+    ![MDS](./images/regionSelector.png " ")
+
+16. Click on your localized geographic area
+
+    ## North America (NA)
+
+    **Tenancy Regions** Please select the same region that you are creating MDS in  
+
+    <details>
+    <summary>US East (Ashburn) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>
+    https://objectstorage.us-ashburn-1.oraclecloud.com/p/0pZRzTl1hFLchwAcornQVePE7eXxp1u6rjVVF3i7a5qN7HASVk4CtTQ9BK9y4xIG/n/mysqlpm/b/plf_mysql_customer_orders/o/mco_nocoupon_dump_05242023/
+    </copy>
+    ```
+    </details>
+
+    <details>
+    <summary>US West (Phoenix) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>TBD</copy>
+    ```
+    </details>
+
+    <details>
+    <summary>US West (San Jose) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>TBD</copy>
+    ```
+    </details>
+    ## Latin America (LAD)
+    **Tenancy Regions** Please select the same region that you are creating MDS in
+    <details>
+    <summary>Brazil East (Sao Paulo) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>
+    <copy>TBD</copy>
+    </copy>
+    ```
+    </details>
+
+    <details>
+    <summary>Chile (Santiago) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>
+    <copy>TBD</copy>
+    </copy>
+    ```
+    </details>
+
+    <details>
+    <summary>Brazil Southeast (Vinhedo) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>
+    <copy>TBD</copy>
+    </copy>
+    ```
+    </details>
+
+17. The Data Import Link entry should look like this:
 
     ![HeatWave](./images/mysql-data-import.png "mysql data import ")
 
-15. Review **Create MySQL DB System**  Screen
+18. Review **Create MySQL DB System**  Screen
 
     ![HeatWave](./images/mysql-create-button.png "mysql create dbbutton")
 
     Click the '**Create**' button
 
-16. The New MySQL DB System will be ready to use after a few minutes
+19. The New MySQL DB System will be ready to use after a few minutes
 
     The state will be shown as 'Creating' during the creation
     ![HeatWave](./images/mysql-heatwave-creating.png "mysql heatwave creating ")
 
-17. The state 'Active' indicates that the DB System is ready for use
+20. The state 'Active' indicates that the DB System is ready for use
 
     On HeatWave-HW Page, check the MySQL Endpoint (Private IP Address)
 
