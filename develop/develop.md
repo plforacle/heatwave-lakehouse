@@ -14,7 +14,7 @@ In this lab, you will be guided through the following tasks:
 
 - Install Apache and PHP
 - Create PHP / MYSQL Connect Application
-- Create Marketing Analytic Application 
+- Create LAMP WEB Application
 
 ### Prerequisites
 
@@ -203,87 +203,6 @@ if ($stmt = $link->prepare($query)) {
 
     Example: http://129.213.167..../dbtest.php  
 
-## Task 4: Create Marketing Analytic Application
-
-1. Go to the development folder
-
-    ```bash
-    <copy>cd /var/www/html</copy>
-    ```
-
-2. Get Eureka Application files  from Storage Object Stogage
-
-    ```bash
-    <copy>sudo wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/_s6Gj-VS4vo95Ch180Ip3ABw7fnu3ufHvUG0MdIOKJ40DzuERyYeQos3agOt0y0e/n/mysqlpm/b/plf_mysql_customer_orders/o/eureka_sales/eurekaweb.zip</copy>
-    ```
-
-3. Unnzip eurekaweb.zip file 
-
-    ```bash
-    <copy>sudo unzip eurekaweb.zip </copy>
-    ```
-
-4. Open the config.php file 
-
-    ```bash
-    <copy>sudo nano eurekaweb/config.php </copy>
-    ```
-
-    Change config.php by replacing the mysql\_customer\_orders schema 'localhost' with heatwave-db IP address,username, and password;
-
-    - Save the eurekaweb/config.php
-    ![MDS](./images/eurekaweb-config.png " ")
-
-## Task 5: Run the Marketing Analytic Application 
-
-1. From your local machine connect to heatwave-client IP Address/eurekaweb/login.php 
-
-    Example: http://999.999.999/eurekaweb/login.php
-
-2. Login with the following information
-
-    a. username: 
-
-    ```bash
-    <copy>plf </copy>
-    ```
-
-    b. password:
-
-    ```bash
-    <copy>hello123</copy>
-
-    ```
-
-    ![MDS](./images/login-page.png "login-page ")
-
-3. From the Welcome Page click the "View Account Activity" button
-
-    ![MDS](./images/welcome.png "welcome ")
-
-4. From the Items purchased Page click the "Loyalty Reward Promotion" button
-
-    ![MDS](./images/promotion-activity.png "promotion activity ")
-
-5. From the Eureka Promotions Page click the "Accept" button
-
-    ![MDS](./images/eureka-promotion.png "eureka promotion")
-
-6. From the Eureka Promotion Coupons  Page click the "Shop" button
-
-    ![MDS](./images/shop.png "shop")
-
-7. From the Promotion Shop  Page select Items to purchase and click the "Submitt" button
-
-    ![MDS](./images/promotion-shop.png "promotion shop")
-
-8. From the Items Purchase Page   click the "Continue" button
-
-    ![MDS](./images/items-purchased.png "items purchased")
-
-9. From the Thank You  Page   click the "Signout" button
-
-    ![MDS](./images/thankyou.png "thank you")
 
 ## Acknowledgements
 

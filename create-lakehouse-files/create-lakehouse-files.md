@@ -2,15 +2,19 @@
 
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+A set of files have been created for you to use in this workshop. You will use the files to create your own lakehouse cloud storage bucket.
 
 ### Objectives
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Download and unzip  Sample files
+- Create Object Storage bucket
+- Add files into  the Bucket using the saved PAR URL
 
 ### Prerequisites
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- An Oracle Trial or Paid Cloud Account
+- Some Experience with MySQL Shell
+- Completed Lab 3
 
 ## Task 1: Download and unzip  Sample files
 

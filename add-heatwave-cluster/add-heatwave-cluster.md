@@ -15,6 +15,7 @@ _Estimated Time:_ 15 minutes
 In this lab, you will be guided through the following task:
 
 - Add a HeatWave Cluster to heatwave-db MySQL Database System
+- Connect to database using MySQL Shell
 
 ### Prerequisites
 
@@ -73,17 +74,17 @@ In this lab, you will be guided through the following task:
         <copy>show databses;</copy>
     ```
 
-    ![CONNECT](./images/list-schemas-after.png "list schemas before")
+    ![CONNECT](./images/list-schemas-after.png "list schemas after")
 
 
 3. View  the mysql\_customer\_orders total records per table in
 
     ```bash
-    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql_customer_orders';</copy>
+    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql customer orders';</copy>
     ```
 
-    ![CONNECT](./images/mysql-customer-orders-list.png.png "mysql-customer-orders-list")
-
+    ![CONNECT](./images/mysql-customer-orders-list.png "mysql customer orders list")
+ 
 You may now **proceed to the next lab**
 
 ## Acknowledgements
