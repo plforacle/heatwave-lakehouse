@@ -18,7 +18,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 - An Oracle Trial or Paid Cloud Account
 - Some Experience with MySQL Shell
-- Completed Lab 4
+- Completed Lab 5
 
 
 ## Task 1: Create the PAR Link for the "delivery_order" files

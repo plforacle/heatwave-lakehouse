@@ -2,50 +2,23 @@
 
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+In this final task of loading data we will load data into a table DELIVERY_VENDOR from the Object Store. This time, the data in the object store is in the parquet format.
+
+**Note:** Apache Parquet is an open source, column-oriented data file format designed for efficient data storage and retrieval. It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk. Parquet is available in multiple languages including Java, C++, Python, etc... You can read up more on the Parquet format here.
+
 
 ### Objectives
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Create PAR URL for Parquet file
+- Create DELIVERY_VENDOR table
 
 ### Prerequisites
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- An Oracle Trial or Paid Cloud Account
+- Some Experience with MySQL Shell
+- Completed Lab 6
 
-## Task 1: Load data by specifying a PAR URL for all objects with a prefix
-
-1. From your OCI console, navigate to your bucket in OCI.
-2. Select the first file —> delivery-orders-1.csv and click the three vertical dots.
-3. Click on ‘Create Pre-Authenticated Request’
-4. Click to select the ‘Objects with prefix’ option under ‘Pre0Authentcated Request Target’.
-5. Leave the ‘Access Type’ option as-is: ‘Permit object reads on those with the specified prefix’.
-6. Click to select the ‘Enable Object Listing’ checkbox.
-7. Click the ‘Create Pre-Authenticated Request’ button.
-8. Click the ‘Copy’ icon to copy the PAR URL.
-9. Save the generated PAR URL; you will need it later.
-10. You can test the URL out by pasting it in your browser. It should return output like this:
-11. Since we have already created the table, we will not run Autopilot again. Instead we will simply go ahead and change the table definition to point it to this new PAR URL as the table source.
-12. Run this command to add this PAR URL as a source for the DELIVERY table:
-
-    ```bash
-    <copy>ALTER TABLE `livelabs`.`DELIVERY` ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/oJ4umFlMGGM6OqxlgBwxLw5PfNFzOVleaa_qVDDvtCDNtrkgQ8u4Nwx9PgY5_KuE/n/mysqlpm/b/lakehouse-livelabs/o/"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}'; </copy>
-    ```
-
-13. Now load data into the DELIVERY table:
-
-    ```bash
-    <copy>alter table DELIVERY secondary_load;</copy>
-    ```
-
-14. View the number of rows in the DELIVERY table:
-
-    ```bash
-    <copy>select count(*) from DELIVERY;</copy>
-    ```
-
-- The DELIVERY table now has 34 million rows.
-
-## Task 2: Load Parquet format data directly from Object Store
+## Task 1: Load Parquet format data directly from Object Store
 
 1. Create PAR URL for Parquet file
 2. Create DELIVERY_VENDOR table
@@ -76,12 +49,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
     ```bash
     <copy>select count(*) from DELIVERY_VENDOR;</copy>
-
+    ```
+    
 7. View a sample of the data in the table.
 
     ```bash
     <copy>select * from DELIVERY_VENDOR limit 5;</copy>
-    
+    ```
 
 You may now **proceed to the next lab**
 
