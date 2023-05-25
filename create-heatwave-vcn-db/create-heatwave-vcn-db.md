@@ -237,9 +237,9 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave](./images/mysql-host.png "mysql host ")
 
-14. Select Data Import tab. 
+14. Select the Data Import tab.
 
-15. Use the Image below identify your OCI Region.
+15. Use the Image below to identify your OCI Region.
 
     ![MDS](./images/regionSelector.png " ")
 

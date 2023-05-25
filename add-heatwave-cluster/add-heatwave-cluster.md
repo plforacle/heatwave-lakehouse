@@ -73,7 +73,7 @@ In this lab, you will be guided through the following task:
         <copy>show databses;</copy>
     ```
 
-    ![CONNECT](./images/list-schemas-before.png "list schemas before")
+    ![CONNECT](./images/list-schemas-after.png "list schemas before")
 
 
 3. View  the mysql\_customer\_orders total records per table in

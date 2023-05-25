@@ -118,7 +118,7 @@ In this lab, you will be guided through the following task:
     </copy>
     ```
 
-    - With HeatWave Cluster **ON: 1.4191 seconds**
+    - With HeatWave Cluster **ON: .3509 seconds**
 
     ![Connect](./images/mysql-customer-order.png "mysql customer order ")
 
@@ -148,7 +148,7 @@ In this lab, you will be guided through the following task:
     </copy>
     ```
 
-    - With HeatWave Cluster **OFF: 19.2451 seconds**
+    - With HeatWave Cluster **OFF: 16.4660 seconds**
 
     ![RUN](./images/mysql-customer-order-nocluster.png "mysql customer order")
 
