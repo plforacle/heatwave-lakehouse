@@ -2,7 +2,11 @@
 
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+There are two ways in which you can specify a location for the folder or file (or files) that constitute the table you want to load into HeatWave. One is by using Resource Principal. It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure.
+The second way is by using Pre-Authenticated Request URLs. For more information on creating PARS, see Using PARs. If you choose to use PAR URLs, we recommend that you use read-only PARs with Lakehouse and that you specify short expiration dates on your PARs. The expiration dates should align with your loading schedule. Since we are using a sample data set, we will make use of PAR URLs in this LiveLab.
+We already have several tables available in HeatWave that have been loaded from MySQL InnoDB storage. 
+We will now load the DELIVERY_ORDERS table from the Object Store. This is a large table with 30 million rows and contains information about the delivery vendor for orders.
+
 
 ### Objectives
 
