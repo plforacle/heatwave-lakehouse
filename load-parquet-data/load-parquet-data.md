@@ -18,7 +18,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 - Some Experience with MySQL Shell
 - Completed Lab 6
 
-## Task 1: Load Parquet format data directly from Object Store 
+## Task 1: Load Parquet format data directly from Object Store
 
 1. Create PAR URL for Parquet file
 2. Create DELIVERY_VENDOR table
