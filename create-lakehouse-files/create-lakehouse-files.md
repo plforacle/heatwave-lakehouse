@@ -41,7 +41,7 @@ A set of files have been created for you to use in this workshop. You will use t
 3. Download sample files
 
     ```bash
-    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/TGmbWNTNxauEBSZKxOaKPggbJRz2k_3i6XiDp5Kq5LRJ3c47Z-U8bb_iuSweoi9X/n/mysqlpm/b/plf_mysql_customer_orders/o/lakehouse/lakehouse-order.zip</copy>
+    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/TGmbWNTNxauEBSZKxOaKPggbJRz2k_3i6XiDp5Kq5LRJ3c47Z-U8bb_iuSweoi9X/n/******/b/plf_mysql_customer_orders/o/lakehouse/lakehouse-order.zip</copy>
      ```
 
 4. Unzip lakehouse-order.zip file which will generate folder datafiles with 4 files
@@ -112,7 +112,7 @@ A set of files have been created for you to use in this workshop. You will use t
      ```
 
      **Example**  
-     curl -X PUT --data-binary '@delivery-orders-1.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/mysqlpm/b/lakehouse-files/o/order/delivery-orders-1.csv
+     curl -X PUT --data-binary '@delivery-orders-1.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-1.csv
 
 2. Add the @delivery-orders-2.csv file to the storage bucket by modifying the following statement with the example below
 
@@ -121,7 +121,7 @@ A set of files have been created for you to use in this workshop. You will use t
      ```
 
      **Example**  
-     curl -X PUT --data-binary '@delivery-orders-2.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/mysqlpm/b/lakehouse-files/o/order/delivery-orders-2.csv
+     curl -X PUT --data-binary '@delivery-orders-2.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-2.csv
 
 3. Add the @delivery-orders-31.csv file to the storage bucket by modifying the following statement with the example below
 
@@ -130,7 +130,7 @@ A set of files have been created for you to use in this workshop. You will use t
      ```
 
      **Example**  
-     curl -X PUT --data-binary '@delivery-orders-3.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/mysqlpm/b/lakehouse-files/o/order/delivery-orders-3.csv
+     curl -X PUT --data-binary '@delivery-orders-3.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-3.csv
 
 4. Add the @delivery-vendor.pq file to the storage bucket by modifying the following statement with the example below
 
@@ -139,7 +139,7 @@ A set of files have been created for you to use in this workshop. You will use t
      ```
 
      **Example**  
-     curl -X PUT --data-binary '@delivery-vendor.pq' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/mysqlpm/b/lakehouse-files/o/delivery-vendor.pq
+     curl -X PUT --data-binary '@delivery-vendor.pq' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/delivery-vendor.pq
 
 You may now **proceed to the next lab**
 

@@ -4,7 +4,10 @@
 
 A HeatWave cluster comprise of a MySQL DB System node and two or more HeatWave nodes. The MySQL DB System node includes a plugin that is responsible for cluster management, loading data into the HeatWave cluster, query scheduling, and returning query result.
 
-In this lab, you will load data and run queries in the HeatWave Cluster. You will see the query performance improvements on HeatWave compare to MySQL.
+In this lab, you will load data into the HeatWave Cluster that you will then combine with data you will load from object storage in the next step.
+
+You can load data from object storage into HeatWave and start anaylyzing that data. However, we will load tables from the MySQL database into HeatWave in this step so you can run queries that combines data from tables in MySQL and object storage.
+
 
 ![Connect](./images/heatwave-lab-setup.png "heatwave lab setup ")
 
@@ -26,7 +29,7 @@ In this lab, you will be guided through the following task:
 ## Task 1: Add a HeatWave Cluster to heatwave-db MySQL Database System
 
 1. Go to Navigation Menu
-    Databa2ses
+    Databases
         MySQL
 
     ![CONNECT](./images/db-list.png "db list")
