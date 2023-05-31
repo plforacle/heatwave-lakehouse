@@ -175,28 +175,28 @@ In this lab, you will be guided through the following tasks:
     ```bash
     <copy>
     <?php
-require_once "config.php";
-$query = "SELECT id, username  FROM mysql_customer_orders.users;";
-if ($stmt = $link->prepare($query)) {
-   $stmt->execute();
-   $stmt->bind_result($id,$username);
-   echo "<table>";
+    require_once "config.php";
+    $query = "select id, vendor_name from DELIVERY_VENDOR limit 5;";
+    if ($stmt = $link->prepare($query)) {
+    $stmt->execute();
+    $stmt->bind_result($id,$vendor_name);
+    echo "<table>";
         echo "<tr>";
         echo "<th>ID</th>";
-        echo "<th>UserName</th>";
+        echo "<th>VendorName</th>";
     echo "</tr>";
 
     while ($stmt->fetch()) {
         echo "<tr>";
-           echo "<td>" . $id ."</td>";
-           echo "<td>" . $username. "</td>";
+        echo "<td>" . $id ."</td>";
+        echo "<td>" . $vendor_name. "</td>";
         echo "</tr>";
-     }
+    }
 
     $stmt->close();
-}
-?>
-</copy>
+    }
+    ?>
+    </copy>
     ```
 
 6. From your local  machine connect to dbhwtest.php
