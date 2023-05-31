@@ -108,13 +108,13 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
            "field_delimiter": "\\t",
            "record_delimiter": "\\n"
            },
-        "file": [{"par": **PAR URL**"}]
+        "file": [{"par": "**PAR URL**"}]
     }] }]';</copy>
     ```
 
-    - It should look like the following example:
+    - It should look like the following example (Be sure to include the PAR Link inside at of quotes("")):
 
-        SET @dl_tables = '[{
+        *SET @dl_tables = '[{
         "db_name": "mysql_customer_orders",
         "tables": [{
             "table_name": "delivery_orders",
@@ -125,14 +125,12 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
             "record_delimiter": "\\n"
             },
             "file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}]
-        }] }]';
+        }] }]';*
 
 4. This command populates all the options needed by Autoload:
 
     ```bash
-    <copy>SET @db_list = '["SET @options = JSON_OBJECT('mode', 'dryrun', 
-    'policy', 'disable_unsupported_columns',
-    'external_tables', CAST(@dl_tables AS JSON));"]';</copy>
+    <copy>SET @options = JSON_OBJECT('mode', 'dryrun',  'policy', 'disable_unsupported_columns',  'external_tables', CAST(@dl_tables AS JSON));</copy>
     ```
 
 5. Run Autoload:
@@ -155,11 +153,11 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id;</copy>
     ```
 
-    a. Execute the recomende command - What column names ?
+    a. Get the recomended command form the result and Execute the command
 
-    ```bash
-    <copy>CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `col_1` int unsigned NOT NULL, `col_2` bigint unsigned NOT NULL, `col_3` tinyint unsigned NOT NULL, `col_4` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `col_5` tinyint unsigned NOT NULL, `col_6` tinyint unsigned NOT NULL, `col_7` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}'; ALTER TABLE `mysql_customer_orders`.`delivery_orders` SECONDARY_LOAD;</copy>
-    ```
+    - It should look like the following example
+
+        *CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `col_1` int unsigned NOT NULL, `col_2` bigint unsigned NOT NULL, `col_3` tinyint unsigned NOT NULL, `col_4` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `col_5` tinyint unsigned NOT NULL, `col_6` tinyint unsigned NOT NULL, `col_7` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
 
 ## Task 4: Load complete DELIVERY table from Object Store into MySQL HeatWave
 
@@ -175,7 +173,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy> ALTER TABLE `mysql_customer_orders`.`delivery_orders` SECONDARY_LOAD; </copy>
     ```
 
-3. Once Autoload completes,point to the scheem
+3. Once Autoload completes,point to the schema
 
     ```bash
     <copy>use mysql_customer_orders</copy>
@@ -193,7 +191,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>select * from delivery_orders limit 5;</copy>
     ```
 
-    a. Join the  with othe table in the schema
+    a. Join the delivery_orders table with other table in the schema
 
     ```bash
     <copy> select o.* ,d.*
@@ -216,33 +214,47 @@ The DELIVERY table contains data loaded from one file so far. If new data arrive
     <copy>ALTER TABLE delivery_orders SECONDARY_UNLOAD;</copy>
     ```
 
-2. From your OCI console, navigate to your bucket in OCI.
-3. Select the first file —> delivery-orders-1.csv and click the three vertical dots.
-4. Click on ‘Create Pre-Authenticated Request’
-5. Click to select the ‘Objects with prefix’ option under ‘Pre0Authentcated Request Target’.
-6. Leave the ‘Access Type’ option as-is: ‘Permit object reads on those with the specified prefix’.
-7. Click to select the ‘Enable Object Listing’ checkbox.
-8. Click the ‘Create Pre-Authenticated Request’ button.
-9. Click the ‘Copy’ icon to copy the PAR URL.
-10. Save the generated PAR URL; you will need it later.
-11. You can test the URL out by pasting it in your browser. It should return output like this:
+2. Create a PAR URL for all objects with a prefix
 
-    Since we have already created the table, we will not run Autopilot again. Instead we will simply go ahead and change the table definition to point it to this new PAR URL as the table source.
+    - a. From your OCI console, navigate to your lakehouse-files bucket in OCI.
+    - b. Select the folder —> order and click the three vertical dots.
 
-12. Run this command to add this PAR URL as a source for the DELIVERY table:
+        ![CONNECT](./images/storage-delivery-orders-folder.png "storage delivery order folder")
+
+    - c. Click on ‘Create Pre-Authenticated Request’
+    - d. Click to select the ‘Objects with prefix’ option under ‘PreAuthentcated Request Target’.
+    - e. Leave the ‘Access Type’ option as-is: ‘Permit object reads on those with the specified prefix’.
+    - g. Click to select the ‘Enable Object Listing’ checkbox.
+    - h. Click the ‘Create Pre-Authenticated Request’ button.
+
+       ![CONNECT](./images/storage-delivery-orders-folder-page.png "storage delivery order folder page") 
+
+    - i. Click the ‘Copy’ icon to copy the PAR URL.
+    - j. Save the generated PAR URL; you will need it later.
+    - k. You can test the URL out by pasting it in your browser. It should return output like this:
+
+        ![CONNECT](./images/storage-delivery-orders-folder-list.png "storage delivery order folder list") 
+
+
+3. Since we have already created the table, we will not run Autopilot again. Instead we will simply go ahead and change the table definition to point it to this new PAR URL as the table source.
+
+4. Copy this command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY table:
 
     ```bash
-    <copy>ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/4EayDq3tv-D08oTTPja-2XEYZSQ0v5cG87CFNc31wT724QB5R21C1UXbK0_snbZA/n/mysqlpm/b/lakehousefiles/o/"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';
-    </copy>
+    <copy>ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "**PAR URL**"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}'; </copy>
     ```
 
-13. Now load data into the DELIVERY table:
+5. Your command  should look like the following example
+
+    *ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/4EayDq3tv-D08oTTPja-2XEYZSQ0v5cG87CFNc31wT724QB5R21C1UXbK0_snbZA/n/mysqlpm/b/lakehousefiles/o/"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+
+6. Now load data into the DELIVERY table:
 
     ```bash
     <copy>alter table delivery_orders secondary_load;</copy>
     ```
 
-14. View the number of rows in the DELIVERY table:
+7. View the number of rows in the DELIVERY table:
 
     ```bash
     <copy>select count(*) from delivery_orders;</copy>
