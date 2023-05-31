@@ -227,14 +227,13 @@ The DELIVERY table contains data loaded from one file so far. If new data arrive
     - g. Click to select the ‘Enable Object Listing’ checkbox.
     - h. Click the ‘Create Pre-Authenticated Request’ button.
 
-       ![CONNECT](./images/storage-delivery-orders-folder-page.png "storage delivery order folder page") 
+       ![CONNECT](./images/storage-delivery-orders-folder-page.png "storage delivery order folder page")
 
     - i. Click the ‘Copy’ icon to copy the PAR URL.
     - j. Save the generated PAR URL; you will need it later.
     - k. You can test the URL out by pasting it in your browser. It should return output like this:
 
-        ![CONNECT](./images/storage-delivery-orders-folder-list.png "storage delivery order folder list") 
-
+        ![CONNECT](./images/storage-delivery-orders-folder-list.png "storage delivery order folder list")
 
 3. Since we have already created the table, we will not run Autopilot again. Instead we will simply go ahead and change the table definition to point it to this new PAR URL as the table source.
 

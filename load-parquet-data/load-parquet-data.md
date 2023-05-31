@@ -20,33 +20,48 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 
 ## Task 1: Create the PAR Link for the "delivery_vendor" files
 
-1. To create a PAR URL go to menu **Storage —> Buckets**
+1. As in the earlier tasks, we will first create a PAR URL to the file we want to load. Here, the entire data is in a single table
+
+2. To create a PAR URL go to menu **Storage —> Buckets**
     ![CONNECT](./images/storage-bucket-menu.png "storage bucket menu")
 
-2. Select **lakehouse-files** bucket.
-3. Select the file —> **delivery-vendor.pq** and click the three vertical dots.
-4. Click on **Create Pre-Authenticated Request**
+3. Select **lakehouse-files** bucket.
+4. Select the file —> **delivery-vendor.pq** and click the three vertical dots.
+5. Click on **Create Pre-Authenticated Request**
 
     ![CONNECT](./images/storage-create-par-vendor.png "storage create par vendors")
 
-5. The **Object** option will be pre-selected.
-6. Keep **Permit object reads** selected
-7. Kep the other options for **Access Type** unchanged.
-8. Click the **Create Pre-Authenticated Request** button.
+6. The **Object** option will be pre-selected.
+7. Keep **Permit object reads** selected
+8. Kep the other options for **Access Type** unchanged.
+9. Click the **Create Pre-Authenticated Request** button.
 
     ![CONNECT](./images/storage-create-par-vendor-page.png "storage create par  vendors page")
 
-9. Click the **Copy** icon to copy the PAR URL. 
+10. Click the **Copy** icon to copy the PAR URL. 
     ![CONNECT](./images/storage-create-par-vendor-page-copy.png "storage create par vendors page copy") 
 
-10. Save the generated PAR URL; you will need it in the next task
+11. Save the generated PAR URL; you will need it in the next task
 
 ## Task 2: Load Parquet format data directly from Object Store
 
-1. Create PAR URL for Parquet file
+1. If not already connected then connect to MySQL using the MySQL Shell client tool with the following command:
 
-2. Create DELIVERY_VENDOR table
-3. On your SQL prompt, run the following command:
+    ```bash
+    <copy>mysqlsh -uadmin -p -h 10.0.1... --sql </copy>
+    ```
+
+    ![Connect](./images/mysql-shell-login.png " mysql shell login")
+
+2. Select the mysql\_customer\_orders database for use
+
+    Enter the following command at the prompt
+
+    ```bash
+    <copy>USE mysql_customer_orders;</copy>
+    ```
+
+3. Create the DELIVERY\_VENDOR table by copying the following command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY_VENDOR table:
 
     ```bash
     <copy>CREATE TABLE DELIVERY_VENDOR(
@@ -54,28 +69,38 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     vendor_name VARCHAR(200)
     ) 
     ENGINE=lakehouse SECONDARY_ENGINE=RAPID 
-    ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/FEE4UaxvnmCHkVCbDFcqe38AJIjaxJAiJSheDBt4LgB-ZvZFrfxCeWhHgB1O3eqE/n/mysqlpm/b/lakehouse-livelabs/o/delivery-vendor.pq"}], "dialect": {"format":"parquet"}}';</copy>
+    ENGINE_ATTRIBUTE='{"file": [{"par": "**PAR URL**"}], "dialect": {"format":"parquet"}}';</copy>
     ```
 
-4. Run this command to see the table structure created.
+4. Your command  should look like the following example
+
+    *CREATE TABLE DELIVERY_VENDOR(
+    id INTEGER,
+    vendor_name VARCHAR(200)
+    ) 
+    ENGINE=lakehouse SECONDARY_ENGINE=RAPID 
+    ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/FEE4UaxvnmCHkVCbDFcqe38AJIjaxJAiJSheDBt4LgB-ZvZFrfxCeWhHgB1O3eqE/n/mysqlpm/b/lakehouse-livelabs/o/delivery-vendor.pq"}], "dialect": {"format":"parquet"}}';*
+
+
+5. Run this command to see the table structure created.
 
     ```bash
     <copy>desc DELIVERY_VENDOR;</copy>
     ```
 
-5. Now load the data from the Object Store into the ORDERS table.
+6. Now load the data from the Object Store into the ORDERS table.
 
     ```bash
     <copy>ALTER TABLE DELIVERY_VENDOR SECONDARY_LOAD;</copy>
     ```
 
-6. Once Autoload completes, check the number of rows loaded into the table.
+7. Once Autoload completes, check the number of rows loaded into the table.
 
     ```bash
     <copy>select count(*) from DELIVERY_VENDOR;</copy>
     ```
-    
-7. View a sample of the data in the table.
+
+8. View a sample of the data in the table.
 
     ```bash
     <copy>select * from DELIVERY_VENDOR limit 5;</copy>
