@@ -27,14 +27,26 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 ## Task 1: Create the PAR Link for the "delivery_order" files
 
 1. To create a PAR URL
-    - Navigate to **Storage —> Buckets —> lakehouse-files —> order**  folder.
+    - Go to menu **Storage —> Buckets**
+     ![CONNECT](./images/storage-bucket-menu.png "storage bucket menu")
+
+    - Select **lakehouse-files —> order**  folder.
 2. Select the first file —> **delivery-orders-1.csv** and click the three vertical dots.
 3. Click on **Create Pre-Authenticated Request**
+
+    ![CONNECT](./images/storage-create-par-orders.png "storage create par orders")
+
 4. The **Object** option will be pre-selected.
-5. Keep the other options for **Access Type** unchanged.
-6. Click the **Create Pre-Authenticated Request** button.
-7. Click the **Copy** icon to copy the PAR URL.
-8. Save the generated PAR URL; you will need it in the next task
+5. Keep **Permit object reads** selected
+6. Kep the other options for **Access Type** unchanged.
+7. Click the **Create Pre-Authenticated Request** button.
+
+    ![CONNECT](./images/storage-create-par-orders-page.png "storage create par orders page")
+
+8. Click the **Copy** icon to copy the PAR URL. 
+    ![CONNECT](./images/storage-create-par-orders-page-copy.png "storage create par orders page copy") 
+
+9. Save the generated PAR URL; you will need it in the next task
 
 ## Task 2: Connect to your MySQL HeatWave system using Cloud Shell
 
@@ -100,20 +112,20 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     }] }]';</copy>
     ```
 
-- It should look like the following example:
+    - It should look like the following example:
 
-    SET @dl_tables = '[{
-    "db_name": "mysql_customer_orders",
-    "tables": [{
-        "table_name": "delivery_orders",
-        "dialect": 
-        {
-        "format": "csv",
-        "field_delimiter": "\\t",
-        "record_delimiter": "\\n"
-        },
-        "file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}]
-    }] }]';
+        SET @dl_tables = '[{
+        "db_name": "mysql_customer_orders",
+        "tables": [{
+            "table_name": "delivery_orders",
+            "dialect": 
+            {
+            "format": "csv",
+            "field_delimiter": "\\t",
+            "record_delimiter": "\\n"
+            },
+            "file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}]
+        }] }]';
 
 4. This command populates all the options needed by Autoload:
 
@@ -194,9 +206,9 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 ## Task 5:  Load all data for DELIVERY table from Object Store
 
-- The DELIVERY table contains data loaded from one file so far. If new data arrives as more files, we can load those files too. The first option is by specifying a list of the files in the table definition. The second option is by specifying a prefix and have all files with that prefix be source files for the DELIVERY table. The third option is by specifying the entire folder in the Object Store to be the source file for the DELIVERY table.
+The DELIVERY table contains data loaded from one file so far. If new data arrives as more files, we can load those files too. The first option is by specifying a list of the files in the table definition. The second option is by specifying a prefix and have all files with that prefix be source files for the DELIVERY table. The third option is by specifying the entire folder in the Object Store to be the source file for the DELIVERY table.
 
-## Task 6: Load data by specifying a PAR URL for all objects with a prefix
+**Load data by specifying a PAR URL for all objects with a prefix**
 
 1. First unload the DELIVERY table from HeatWave:
 

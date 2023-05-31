@@ -10,7 +10,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 ### Objectives
 
 - Create PAR URL for Parquet file
-- Create DELIVERY_VENDOR table
+- Create and load DELIVERY_VENDOR table
 
 ### Prerequisites
 
@@ -18,9 +18,33 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 - Some Experience with MySQL Shell
 - Completed Lab 6
 
-## Task 1: Load Parquet format data directly from Object Store
+## Task 1: Create the PAR Link for the "delivery_vendor" files
+
+1. To create a PAR URL go to menu **Storage —> Buckets**
+    ![CONNECT](./images/storage-bucket-menu.png "storage bucket menu")
+
+2. Select **lakehouse-files** bucket.
+3. Select the file —> **delivery-vendor.pq** and click the three vertical dots.
+4. Click on **Create Pre-Authenticated Request**
+
+    ![CONNECT](./images/storage-create-par-vendor.png "storage create par vendors")
+
+5. The **Object** option will be pre-selected.
+6. Keep **Permit object reads** selected
+7. Kep the other options for **Access Type** unchanged.
+8. Click the **Create Pre-Authenticated Request** button.
+
+    ![CONNECT](./images/storage-create-par-vendor-page.png "storage create par  vendors page")
+
+9. Click the **Copy** icon to copy the PAR URL. 
+    ![CONNECT](./images/storage-create-par-vendor-page-copy.png "storage create par vendors page copy") 
+
+10. Save the generated PAR URL; you will need it in the next task
+
+## Task 2: Load Parquet format data directly from Object Store
 
 1. Create PAR URL for Parquet file
+
 2. Create DELIVERY_VENDOR table
 3. On your SQL prompt, run the following command:
 
