@@ -131,35 +131,49 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>SET @options = JSON_OBJECT('mode', 'dryrun',  'policy', 'disable_unsupported_columns',  'external_tables', CAST(@dl_tables AS JSON));</copy>
     ```
 
-5. Run Autoload:
+5. Run this Autoload command:
 
     ```bash
     <copy>CALL sys.heatwave_load(@db_list, @options);</copy>
     ```
 
-    a. Once Autoload completes running, its output has several pieces of information:
-     Whether the table exists in the schema you have identified.
+6. Once Autoload completes running, its output has several pieces of information:
+    - a. Whether the table exists in the schema you have identified.
+    - b. Auto schema inference determines the number of columns in the table.
+    - c. Auto schema sampling samples a small number of rows from the table and determines the number of rows in the table and the size of the table.
+    - d. Auto provisioning determines how much memory would be needed to load this table into HeatWave and how much time loading this data take.
 
-    b. Auto schema inference determines the number of columns in the table.
-    Auto schema sampling samples a small number of rows from the table and determines the number of rows in the table and the size of the table.
-
-    c. Auto provisioning determines how much memory would be needed to load this table into HeatWave and how much time loading this data take.
-
-6. Autoload generates the SQL statements needed to create the table and then load this table data from the Object Store into HeatWave.
+7. Autoload also generated a statement lke the one below. Execute this statement now.
 
     ```bash
     <copy>SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id;</copy>
     ```
 
-    a. Get the recomended command form the result and Execute the command
+    ![CONNECT](./images/load-script-dryrun.png "load script dryrun")
 
-    - It should look like the following example
+8. The execution result conatins the SQL statements needed to create the table and then load this table data from the Object Store into HeatWave.
 
-        *CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `col_1` int unsigned NOT NULL, `col_2` bigint unsigned NOT NULL, `col_3` tinyint unsigned NOT NULL, `col_4` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `col_5` tinyint unsigned NOT NULL, `col_6` tinyint unsigned NOT NULL, `col_7` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+    ![CONNECT](./images/create-delivery-order.png "create delivery order")
 
-    - You can use this command to use more descriptive column names for your delivery_orders table:
+9. Copy the **CREATE TABLE** command from the results. It should look like the following example
 
-        *CREATE TABLE mysql_customer_orders.delivery_orders( orders_delivery int unsigned NOT NULL, order_id bigint unsigned NOT NULL, customer_id unsigned NOT NULL, order_status tinyint varchar(9) NOT NULL COMMENT 'RAPIDCOLUMN=ENCODING=VARLEN', store_id tinyint unsigned NOT NULL, delivery_vendor_id tinyint unsigned NOT NULL, estimated_time_hours tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARYENGINE=RAPID ENGINEATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2hfQDhfM5C9SbKXOZbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "fielddelimiter": "\t", "recorddelimiter": "\n"}}';*
+    *CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `col_1` int unsigned NOT NULL, `col_2` bigint unsigned NOT NULL, `col_3` tinyint unsigned NOT NULL, `col_4` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `col_5` tinyint unsigned NOT NULL, `col_6` tinyint unsigned NOT NULL, `col_7` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+
+10. Modify the **CREATE TABLE** command to replace the generic column names, such as **col\_1**, with descriptive column names. Use the following values:
+
+    - `col_1 : orders_delivery`
+    - `col_2 : order_id`
+    - `col_3 : customer_id`
+    - `col_4 : order_status`
+    - `col_5 : store_id`
+    - `col_6 : delivery_vendor_id`
+    - `col_6 : estimated_time_hours`
+
+11. Your modified **CREATE TABLE** command  should look like the following example:
+
+    *CREATE TABLE `mysql_customer_orders`.`delivery_orders`(  orders\_delivery int unsigned NOT NULL, order\_id bigint unsigned NOT NULL, customer\_id tinyint unsigned NOT NULL, order\_status varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', store\_id tinyint unsigned NOT NULL, delivery\_vendor\_id tinyint unsigned NOT NULL, estimated\_time\_hours tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/5DMEBFRyClFHAvYmzeYRPcer6RnItRMck-P-6DiTP2vak8H_ykuTDZTub3IXeB16/n/mysqlpm/b/lakehouse-files/o/order/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+
+12. Execute the modified **CREATE TABLE** command to create the delivery_orders table.
 
 ## Task 4: Load complete DELIVERY table from Object Store into MySQL HeatWave
 
@@ -196,10 +210,9 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     a. Join the delivery_orders table with other table in the schema
 
     ```bash
-    <copy> select o.* ,d.*
-        from  orders o
-        join delivery_orders d on o.ORDER_ID = d.col_2
-        where o.order_id = 93751524; </copy>
+    <copy> select o.* ,d.*  from  orders o
+    join delivery_orders d on o.order_id = d.order_id
+    where o.order_id = 93751524; </copy>
     ```
 
     Your DELIVERY table is now ready to be used in queries with other tables. In the next lab, we will see how to load additional data for the DELIVERY table from the Object Store using different options.
