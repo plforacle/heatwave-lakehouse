@@ -6,9 +6,8 @@ In this lab you will load data from object storage into HeatWave.
 
 In this lab you will load data from object storage into HeatWave.
 
-There are two ways in which you can specify a location for the folder or file (or files) that constitute the table you want to load into HeatWave. One is by using Resource Principal. It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure. 
+There are two ways in which you can specify a location for the folder or file (or files) that constitute the table you want to load into HeatWave. One is by using Resource Principal. It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure.
 The second way is by using Pre-Authenticated Request URLs. For more information on creating PARS, see Using PARs. If you choose to use PAR, we recommend that you use read-only PARs with Lakehouse and that you specify short expiration dates on your PARs. The expiration dates should align with your loading schedule. Since we are using a sample data set, we will make use of PAR in this LiveLab. We already have several tables available in HeatWave that have been loaded from MySQL InnoDB storage.
-
 
 We will now load the DELIVERY_ORDERS table from the Object Store. This is a large table with 30 million rows and contains information about the delivery vendor for orders.
 
@@ -43,8 +42,8 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
     ![CONNECT](./images/storage-create-par-orders-page.png "storage create par orders page")
 
-8. Click the **Copy** icon to copy the PAR URL. 
-    ![CONNECT](./images/storage-create-par-orders-page-copy.png "storage create par orders page copy") 
+8. Click the **Copy** icon to copy the PAR URL.
+    ![CONNECT](./images/storage-create-par-orders-page-copy.png "storage create par orders page copy")
 
 9. Save the generated PAR URL; you will need it in the next task
 
@@ -88,7 +87,6 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 1. Part of the DELIVERY information for orders is contained in the delivery-orders-1.csv file in object store for which we have created a PAR URL in the earlier task. In a later task, we will load the other files for the DELIVER_ORDERS table into MySQL HeatWave. Enter the following commands one by one and hit Enter.
 
-
 2. This sets the schema we will load table data into. Don’t worry if this schema has not been created. Autopilot will generate the commands for you to create this schema if it doesn’t exist.
 
     ```bash
@@ -118,7 +116,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
         "db_name": "mysql_customer_orders",
         "tables": [{
             "table_name": "delivery_orders",
-            "dialect": 
+            "dialect":
             {
             "format": "csv",
             "field_delimiter": "\\t",
@@ -158,6 +156,10 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     - It should look like the following example
 
         *CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `col_1` int unsigned NOT NULL, `col_2` bigint unsigned NOT NULL, `col_3` tinyint unsigned NOT NULL, `col_4` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `col_5` tinyint unsigned NOT NULL, `col_6` tinyint unsigned NOT NULL, `col_7` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2_h_fQDhfM5C9SbKXO_Zbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+
+    - You can use this command to use more descriptive column names for your delivery_orders table:
+
+        *CREATE TABLE mysql_customer_orders.delivery_orders( orders_delivery int unsigned NOT NULL, order_id bigint unsigned NOT NULL, customer_id unsigned NOT NULL, order_status tinyint varchar(9) NOT NULL COMMENT 'RAPIDCOLUMN=ENCODING=VARLEN', store_id tinyint unsigned NOT NULL, delivery_vendor_id tinyint unsigned NOT NULL, estimated_time_hours tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARYENGINE=RAPID ENGINEATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/MAGNmpjq3Ej4wX6LN6KaE3R9AM2hfQDhfM5C9SbKXOZbe4MdrTvypV5XsyHkS/n/mysqlpm/b/lakehousefiles/o/delivery-orders-1.csv"}], "dialect": {"format": "csv", "fielddelimiter": "\t", "recorddelimiter": "\n"}}';*
 
 ## Task 4: Load complete DELIVERY table from Object Store into MySQL HeatWave
 
@@ -206,7 +208,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 The DELIVERY table contains data loaded from one file so far. If new data arrives as more files, we can load those files too. The first option is by specifying a list of the files in the table definition. The second option is by specifying a prefix and have all files with that prefix be source files for the DELIVERY table. The third option is by specifying the entire folder in the Object Store to be the source file for the DELIVERY table.
 
-**Load data by specifying a PAR URL for all objects with a prefix**
+We will use the second option which Loads the data by specifying a PAR URL for all objects with a prefix.
 
 1. First unload the DELIVERY table from HeatWave:
 
@@ -259,7 +261,7 @@ The DELIVERY table contains data loaded from one file so far. If new data arrive
     <copy>select count(*) from delivery_orders;</copy>
     ```
 
-    The DELIVERY table now has 34 million rows. 
+    The DELIVERY table now has 34 million rows.
 
 You may now **proceed to the next lab**
 
