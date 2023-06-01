@@ -41,7 +41,7 @@ A set of files have been created for you to use in this workshop. You will use t
 3. Download sample files
 
     ```bash
-    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/TGmbWNTNxauEBSZKxOaKPggbJRz2k_3i6XiDp5Kq5LRJ3c47Z-U8bb_iuSweoi9X/n/******/b/plf_mysql_customer_orders/o/lakehouse/lakehouse-order.zip</copy>
+    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/nnsIBVX1qztFmyAuwYIsZT2p7Z-tWBcuP9xqPCdND5LzRDIyBHYqv_8a26Z38Kqq/n/mysqlpm/b/plf_mysql_customer_orders/o/lakehouse/lakehouse-order.zip</copy>
      ```
 
 4. Unzip lakehouse-order.zip file which will generate folder datafiles with 4 files
