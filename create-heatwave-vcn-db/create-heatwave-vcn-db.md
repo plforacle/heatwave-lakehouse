@@ -1,4 +1,4 @@
-# Create VCN and MySQL Database HeatWave
+# Create VCN and MySQL HeatWave Database
 
 ## Introduction
 
@@ -260,6 +260,14 @@ In this lab, you will be guided through the following tasks:
     </details>
 
     <details>
+    <summary>US Midwest (Chicago) Region - Copy and paste to PAR Source URL</summary>
+    <br>
+    ```
+    <copy>TBD</copy>
+    ```
+    </details>
+
+    <details>
     <summary>US West (Phoenix) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
@@ -271,7 +279,7 @@ In this lab, you will be guided through the following tasks:
     <summary>US West (San Jose) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
-    <copy>TBD</copy>
+    <copy>https://objectstorage.us-sanjose-1.oraclecloud.com/p/WVEfexlDvAa_wJQFA5zl0Yc6k0hBIfMZEk2xu898A9GhNgaLIJFm2WELR5tK_RNA/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
     ```
     </details>
     ## Latin America (LAD)
