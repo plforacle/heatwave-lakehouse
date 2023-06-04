@@ -271,7 +271,7 @@ In this lab, you will be guided through the following tasks:
     <summary>US West (Phoenix) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
-    <copy>TBD</copy>
+    <copy>https://objectstorage.us-phoenix-1.oraclecloud.com/p/mUzBCdSGiskSfFH0X8h5rRXV7GN3k0wqXeY-K3A1V7PBt_9_O2nbS2U1HO3nOqt_/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
     ```
     </details>
 
