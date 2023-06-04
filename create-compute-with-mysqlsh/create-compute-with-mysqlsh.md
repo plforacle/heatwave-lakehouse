@@ -118,9 +118,8 @@ You will need a compute Instance to connect to your brand new MySQL database.
 7. Change the Instance Shape:
     - Click **Change shape** button
     - Click **Virtual Machine** box
-    - Click **AMD** box
-    - Click **VM.Standard.E4.Flex**
-    - Set Number of OCPUs to **8**
+    - Click **Specialty and previous generation** box
+    - Click **VM.Standard.E2.2**
     - Click the **Select Shape** button
 
     ![CONNECT](./images/compute-shape-select.png "compute shape select")
