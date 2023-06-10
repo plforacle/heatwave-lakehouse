@@ -15,7 +15,7 @@
         },
 
         {
-          "title": "Lab 1: Create VCN , MySQL HeatWave DB System, and HeatWave Cluster",
+          "title": "Lab 1: Create VCN and MySQL HeatWave DB System while loading DB Data",
           "filename": "../../create-heatwave-vcn-db/create-heatwave-vcn-db.md"
         },
 

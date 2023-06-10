@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will create a Virtual Cloud Network (VCN) to connect your OCI resources. You will create a MySQL HeatWave DB System and configure the HeatWave Cluster.
+In this lab, you will create a Virtual Cloud Network (VCN) to connect your OCI resources. You will create a MySQL HeatWave DB System while loading the DB Data.
 
 _Estimated Time:_ 20 minutes
 
@@ -12,8 +12,8 @@ In this lab, you will be guided through the following tasks:
 
 - Create a Virtual Cloud Network
 - Configure a security list to allow MySQL incoming connections
-- Create a MySQL Database for HeatWave DB System
-- Add a HeatWave Cluster to the MySQL DB System
+- Create a MySQL Database for HeatWave DB System while loading the DB Data
+
 
 ### Prerequisites
 
