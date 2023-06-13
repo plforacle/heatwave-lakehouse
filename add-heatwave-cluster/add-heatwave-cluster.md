@@ -55,6 +55,10 @@ In this lab, you will be guided through the following task:
 
 ## Task 2: Connect to database using MySQL Shell
 
+***IMPORTANT**  When the HeatWave culster has been create  **Click Enable** “MySQL HeatWave Lakehouse” to activate HeatWave Lakehouse in the cluster
+
+![Connect](./images/heatwave-cluster-lakehouse.png "heatwave cluster lakehouse")
+
 1. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
 
     (Example  **mysqlsh -uadmin -p -h10.0.1..   --sql**)
