@@ -184,7 +184,7 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave](./images/mysql-heatwave-basic.png "HeatWave Basic")
 
-6. Select **HeatWave** to specify a HeatWave DB System
+6. Select **“Standalone”** and enable **“Configure MySQL HeatWave”**
     ![HeatWave](./images/mysql-heatwave-system-selection.png "mysql heatwave system selection")
 
 7. Create Administrator Credentials

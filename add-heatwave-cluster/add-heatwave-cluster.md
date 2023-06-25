@@ -44,6 +44,7 @@ In this lab, you will be guided through the following task:
 
     ![Connect](./images/heatwave-cluster-generate-estimate.png "heatwave cluster generate  estimate ")
 
+
 6. **Set Node Count to 2 for this Lab Click** “Add HeatWave Cluster” to create the HeatWave cluster
 
     ![Connect](./images/mysql-add-heat-estimate.png "mysql add-heat estimate")
