@@ -58,7 +58,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 2. List schemas in your heatwave instance
 
     ```bash
-        <copy>show databses;</copy>
+        <copy>show databases;</copy>
     ```
 
     ![CONNECT](./images/list-schemas-after.png "list schemas after")
