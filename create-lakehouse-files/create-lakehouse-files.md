@@ -135,7 +135,7 @@ A set of files have been created for you to use in this workshop. You will use t
 4. Add the @delivery-vendor.pq file to the storage bucket by modifying the following statement with the example below
 
     ```bash
-    <copy>curl -X PUT --data-binary '@delivery-vendor.pq' + PAR URL + order/delivery-vendor.pq</copy>
+    <copy>curl -X PUT --data-binary '@delivery-vendor.pq' + PAR URL + delivery-vendor.pq</copy>
      ```
 
      **Example**  

@@ -45,7 +45,13 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 
 ## Task 2: Load Parquet format data directly from Object Store
 
-1. If not already connected then connect to MySQL using the MySQL Shell client tool with the following command:
+1. If not already connected with SSH, on Command Line, connect to the Compute instance using SSH ... be sure replace the  "private key file"  and the "new compute instance ip"
+
+     ```bash
+    <copy>ssh -i private_key_file opc@new_compute_instance_ip</copy>
+     ```
+
+2. If not already connected then connect to MySQL using the MySQL Shell client tool with the following command:
 
     ```bash
     <copy>mysqlsh -uadmin -p -h 10.0.1... --sql </copy>
@@ -53,7 +59,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 
     ![Connect](./images/mysql-shell-login.png " mysql shell login")
 
-2. Select the mysql\_customer\_orders database for use
+3. Select the mysql\_customer\_orders database for use
 
     Enter the following command at the prompt
 
@@ -61,7 +67,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     <copy>USE mysql_customer_orders;</copy>
     ```
 
-3. Create the DELIVERY\_VENDOR table by copying the following command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY_VENDOR table:
+4. Create the DELIVERY\_VENDOR table by copying the following command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY_VENDOR table:
 
     ```bash
     <copy>CREATE TABLE DELIVERY_VENDOR(
@@ -72,7 +78,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     ENGINE_ATTRIBUTE='{"file": [{"par": "**PAR URL**"}], "dialect": {"format":"parquet"}}';</copy>
     ```
 
-4. Your command  should look like the following example
+5. Your command  should look like the following example
 
     *CREATE TABLE DELIVERY_VENDOR(
     id INTEGER,
@@ -82,25 +88,25 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/FEE4UaxvnmCHkVCbDFcqe38AJIjaxJAiJSheDBt4LgB-ZvZFrfxCeWhHgB1O3eqE/n/mysqlpm/b/lakehouse-livelabs/o/delivery-vendor.pq"}], "dialect": {"format":"parquet"}}';*
 
 
-5. Run this command to see the table structure created.
+6. Run this command to see the table structure created.
 
     ```bash
     <copy>desc DELIVERY_VENDOR;</copy>
     ```
 
-6. Now load the data from the Object Store into the ORDERS table.
+7. Now load the data from the Object Store into the ORDERS table.
 
     ```bash
     <copy>ALTER TABLE DELIVERY_VENDOR SECONDARY_LOAD;</copy>
     ```
 
-7. Once Autoload completes, check the number of rows loaded into the table.
+8. Once Autoload completes, check the number of rows loaded into the table.
 
     ```bash
     <copy>select count(*) from DELIVERY_VENDOR;</copy>
     ```
 
-8. View a sample of the data in the table.
+9. View a sample of the data in the table.
 
     ```bash
     <copy>select * from DELIVERY_VENDOR limit 5;</copy>

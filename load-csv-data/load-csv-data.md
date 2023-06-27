@@ -4,8 +4,6 @@
 
 In this lab you will load data from object storage into HeatWave.
 
-In this lab you will load data from object storage into HeatWave.
-
 There are two ways in which you can specify a location for the folder or file (or files) that constitute the table you want to load into HeatWave. One is by using Resource Principal. It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure.
 The second way is by using Pre-Authenticated Request URLs. For more information on creating PARS, see Using PARs. If you choose to use PAR, we recommend that you use read-only PARs with Lakehouse and that you specify short expiration dates on your PARs. The expiration dates should align with your loading schedule. Since we are using a sample data set, we will make use of PAR in this LiveLab. We already have several tables available in HeatWave that have been loaded from MySQL InnoDB storage.
 
@@ -167,11 +165,11 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     - `col_4 : order_status`
     - `col_5 : store_id`
     - `col_6 : delivery_vendor_id`
-    - `col_6 : estimated_time_hours`
+    - `col_7 : estimated_time_hours`
 
 11. Your modified **CREATE TABLE** command  should look like the following example:
 
-    *CREATE TABLE `mysql_customer_orders`.`delivery_orders`(  orders\_delivery int unsigned NOT NULL, order\_id bigint unsigned NOT NULL, customer\_id tinyint unsigned NOT NULL, order\_status varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', store\_id tinyint unsigned NOT NULL, delivery\_vendor\_id tinyint unsigned NOT NULL, estimated\_time\_hours tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/5DMEBFRyClFHAvYmzeYRPcer6RnItRMck-P-6DiTP2vak8H_ykuTDZTub3IXeB16/n/mysqlpm/b/lakehouse-files/o/order/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
+    *CREATE TABLE `mysql_customer_orders`.`delivery_orders`( `orders_delivery` int unsigned NOT NULL, `order_id` bigint unsigned NOT NULL, `customer_id` tinyint unsigned NOT NULL, `order_status` varchar(9) NOT NULL COMMENT 'RAPID_COLUMN=ENCODING=VARLEN', `store_id` tinyint unsigned NOT NULL, `delivery_vendor_id` tinyint unsigned NOT NULL, `estimated_time_hours` tinyint unsigned NOT NULL) ENGINE=lakehouse SECONDARY_ENGINE=RAPID ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/Jl8AjjtkPT8TDZZ-lK2qDj8oxVEZ2ah09fJN9Gl7XfhNBWBpzdvwOXkxx9Yz_SLi/n/iddftbilrksk/b/lakehouse-files-plf/o/order/delivery-orders-1.csv"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
 
 12. Execute the modified **CREATE TABLE** command to create the delivery_orders table.
 

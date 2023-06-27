@@ -44,14 +44,15 @@ In this lab, you will be guided through the following task:
 
     ![Connect](./images/heatwave-cluster-generate-estimate.png "heatwave cluster generate  estimate ")
 
+6. Enable the **MySQL HeatWave LakeHouse** checkbox
 
-6. **Set Node Count to 2 for this Lab Click** “Add HeatWave Cluster” to create the HeatWave cluster
+- **Set Node Count to 2 for this Lab Click** “Add HeatWave Cluster” to create the HeatWave cluster
 
-    ![Connect](./images/mysql-add-heat-estimate.png "mysql add-heat estimate")
+    ![Connect](./images/mysql-add-heatwave-cluster.png "mysql add heatwave cluster")
 
-7. HeatWave creation will take about 10 minutes. From the DB display page scroll down to the Resources section.
+8. HeatWave creation will take about 10 minutes. From the DB display page scroll down to the Resources section.
 
-8. Click the **HeatWave** link. Your completed HeatWave Cluster Information section will look like this:
+9. Click the **HeatWave** link. Your completed HeatWave Cluster Information section will look like this:
     ![Connect](./images/mysql-heat-cluster-complete.png "mysql heat cluster complete ")
 
 ## Task 2: Connect to database using MySQL Shell
@@ -60,7 +61,13 @@ In this lab, you will be guided through the following task:
 
 ![Connect](./images/heatwave-cluster-lakehouse.png "heatwave cluster lakehouse")
 
-1. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
+1. If not already connected with SSH, on Command Line, connect to the Compute instance using SSH ... be sure replace the  "private key file"  and the "new compute instance ip"
+
+     ```bash
+    <copy>ssh -i private_key_file opc@new_compute_instance_ip</copy>
+     ```
+
+2. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
 
     (Example  **mysqlsh -uadmin -p -h10.0.1..   --sql**)
 
@@ -72,7 +79,7 @@ In this lab, you will be guided through the following task:
 
     ![CONNECT](./images/connect-myslqsh.png "connect myslqsh")
 
-2. List schemas in your heatwave instance
+3. List schemas in your heatwave instance
 
     ```bash
         <copy>show databses;</copy>
@@ -80,15 +87,14 @@ In this lab, you will be guided through the following task:
 
     ![CONNECT](./images/list-schemas-after.png "list schemas after")
 
-
-3. View  the mysql\_customer\_orders total records per table in
+4. View  the mysql\_customer\_orders total records per table in
 
     ```bash
     <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql customer orders';</copy>
     ```
 
     ![CONNECT](./images/mysql-customer-orders-list.png "mysql customer orders list")
- 
+
 You may now **proceed to the next lab**
 
 ## Acknowledgements

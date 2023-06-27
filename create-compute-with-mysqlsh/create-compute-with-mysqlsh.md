@@ -111,7 +111,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
 5. On Placement, keep the selected Availability Domain
 
-6. On Image and Shape, keep the selected Image, Oracle Linux 8
+6. Keep the selected Image, Oracle Linux 8
 
       ![CONNECT](./images/compute-oracle-linux.png "compute oracle linux")  
 
