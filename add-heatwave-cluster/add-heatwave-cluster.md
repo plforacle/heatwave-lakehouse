@@ -4,7 +4,6 @@
 
 A HeatWave cluster comprise of a MySQL DB System node and two or more HeatWave nodes. The MySQL DB System node includes a plugin that is responsible for cluster management, loading data into the HeatWave cluster, query scheduling, and returning query result.
 
-
 ![Connect](./images/heatwave-lab-setup.png "heatwave lab setup ")
 
 _Estimated Time:_ 15 minutes
@@ -46,7 +45,7 @@ In this lab, you will be guided through the following task:
 
 6. Enable the **MySQL HeatWave LakeHouse** checkbox
 
-- **Set Node Count to 2 for this Lab Click** “Add HeatWave Cluster” to create the HeatWave cluster
+7. Set **Node Count to 2** for this Lab Click **Add HeatWave Cluster** to create the HeatWave cluster
 
     ![Connect](./images/mysql-add-heatwave-cluster.png "mysql add heatwave cluster")
 
