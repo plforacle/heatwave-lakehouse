@@ -90,7 +90,7 @@ In this lab, you will be guided through the following task:
 4. View  the mysql\_customer\_orders total records per table in
 
     ```bash
-    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql customer orders';</copy>
+    <copy>SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'mysql_customer_orders';</copy>
     ```
 
     ![CONNECT](./images/mysql-customer-orders-list.png "mysql customer orders list")
