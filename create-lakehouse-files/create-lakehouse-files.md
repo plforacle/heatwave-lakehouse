@@ -57,7 +57,7 @@ A set of files have been created for you to use in this workshop. You will use t
     ```
 
     ```bash
-    <copy>ls</copy>
+    <copy>ls -l</copy>
     ```
 
     ![cloud storage bucket](./images/datafiles-list.png "datafiles list")
@@ -100,47 +100,49 @@ A set of files have been created for you to use in this workshop. You will use t
     ```
 
     ```bash
-    <copy>ls</copy>
+    <copy>ls -l</copy>
     ```
 
     ![cloud storage bucket](./images/datafiles-list.png "datafiles list")
 
-2. Add the delivery-orders-1.csv file to the storage bucket by modifying the following statement with the example below
+2. Add the delivery-orders-1.csv file to the storage bucket by modifying the following statement with the example below. You must replace the **"PAR URL"** value with the saved generated **PAR URL** from the previous Task.
 
     ```bash
-    <copy>curl -X PUT --data-binary '@delivery-orders-1.csv' + PAR URL + order/delivery-orders-1.csv</copy>
+    <copy>curl -X PUT --data-binary '@delivery-orders-1.csv' "PAR URL"order/delivery-orders-1.csv</copy>
      ```
 
      **Example**  
      curl -X PUT --data-binary '@delivery-orders-1.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-1.csv
 
-2. Add the @delivery-orders-2.csv file to the storage bucket by modifying the following statement with the example below
+3. Add the @delivery-orders-2.csv file to the storage bucket by modifying the following statement with the example below. You must replace the **"PAR URL"** value with the saved generated **PAR URL** from the previous Task.
 
     ```bash
-    <copy>curl -X PUT --data-binary '@delivery-orders-2.csv' + PAR URL + order/delivery-orders-2.csv</copy>
+    <copy>curl -X PUT --data-binary '@delivery-orders-2.csv' "PAR URL"order/delivery-orders-2.csv</copy>
      ```
 
      **Example**  
      curl -X PUT --data-binary '@delivery-orders-2.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-2.csv
 
-3. Add the @delivery-orders-31.csv file to the storage bucket by modifying the following statement with the example below
+4. Add the @delivery-orders-31.csv file to the storage bucket by modifying the following statement with the example below.You must replace the **PAR URL** value with the saved generated PAR URL from the previous Task.
 
     ```bash
-    <copy>curl -X PUT --data-binary '@delivery-orders-3.csv' + PAR URL + order/delivery-orders-3.csv</copy>
+    <copy>curl -X PUT --data-binary '@delivery-orders-3.csv' "PAR URL"order/delivery-orders-3.csv</copy>
      ```
 
      **Example**  
      curl -X PUT --data-binary '@delivery-orders-3.csv' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/order/delivery-orders-3.csv
 
-4. Add the @delivery-vendor.pq file to the storage bucket by modifying the following statement with the example below
+5. Add the @delivery-vendor.pq file to the storage bucket by modifying the following statement with the example below. You must replace the **PAR URL** value with the saved generated PAR URL from the previous Task.
 
     ```bash
-    <copy>curl -X PUT --data-binary '@delivery-vendor.pq' + PAR URL + delivery-vendor.pq</copy>
+    <copy>curl -X PUT --data-binary '@delivery-vendor.pq' "PAR URL"delivery-vendor.pq</copy>
      ```
 
      **Example**  
      curl -X PUT --data-binary '@delivery-vendor.pq' https://objectstorage.us-ashburn-1.oraclecloud.com/p/RfXc55AGpLSu26UgqbmGxbWZwh4hPhLkVWYMg4f5pNerQx_1NghgSKJHLzE4IWxH/n/******/b/lakehouse-files/o/delivery-vendor.pq
 
+6. Your **lakehouse-files** bucket should look like this:
+    ![cloud storage bucket](./images/lakehouse-bucket.png "lakehouse bucket")
 You may now **proceed to the next lab**
 
 ## Acknowledgements
