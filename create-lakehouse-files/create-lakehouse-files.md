@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A set of files have been created for you to use in this workshop. You will use the files to create your own lakehouse cloud storage bucket.
+A set of files have been created for you to use in this workshop. You will use the files to create your own lakehouse cloud storage bucket. testing
 
 ### Objectives
 
