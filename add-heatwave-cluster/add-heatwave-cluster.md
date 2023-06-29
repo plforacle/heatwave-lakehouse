@@ -81,7 +81,7 @@ In this lab, you will be guided through the following task:
 3. List schemas in your heatwave instance
 
     ```bash
-        <copy>show databses;</copy>
+        <copy>show databases;</copy>
     ```
 
     ![CONNECT](./images/list-schemas-after.png "list schemas after")

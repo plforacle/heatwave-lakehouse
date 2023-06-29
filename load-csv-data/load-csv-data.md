@@ -91,7 +91,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>SET @db_list = '["mysql_customer_orders"]';</copy>
     ```
 
-3. This sets the parameters for the table name we want to load data into and other information about the source file in the object store. Substitute the **PAR URL** below with the one you generated in the previous task:
+3. This sets the parameters for the table name we want to load data into and other information about the source file in the object store. Substitute the **(PAR URL)** below with the one you generated in the previous task:
 
     ```bash
     <copy>SET @dl_tables = '[{
@@ -104,7 +104,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
            "field_delimiter": "\\t",
            "record_delimiter": "\\n"
            },
-        "file": [{"par": "**PAR URL**"}]
+        "file": [{"par": "(PAR URL)"}]
     }] }]';</copy>
     ```
 
@@ -173,6 +173,10 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 12. Execute the modified **CREATE TABLE** command to create the delivery_orders table.
 
+13. The create command and result should look lie this
+
+    ![CONNECT](./images/create-delivery-table.png "create delivery table")
+
 ## Task 4: Load complete DELIVERY table from Object Store into MySQL HeatWave
 
 1. Run this command to see the table structure created.
@@ -180,6 +184,8 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     ```bash
     <copy>desc delivery_orders;</copy>
     ```
+
+    ![CONNECT](./images/describe-delivery-table.png "describe delivery table")
 
 2. Now load the data from the Object Store into the ORDERS table.
 
@@ -213,7 +219,11 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     where o.order_id = 93751524; </copy>
     ```
 
-    Your DELIVERY table is now ready to be used in queries with other tables. In the next lab, we will see how to load additional data for the DELIVERY table from the Object Store using different options.
+6. Your output for steps 2 thru 5 should look like this:
+
+    ![CONNECT](./images/load-delivery-table.png "load delivery table")
+
+7. Your DELIVERY table is now ready to be used in queries with other tables. In the next lab, we will see how to load additional data for the DELIVERY table from the Object Store using different options.
 
 ## Task 5:  Load all data for DELIVERY table from Object Store
 
