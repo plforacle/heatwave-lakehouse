@@ -260,17 +260,21 @@ We will use the second option which Loads the data by specifying a PAR URL for a
 
 3. Since we have already created the table, we will not run Autopilot again. Instead we will simply go ahead and change the table definition to point it to this new PAR URL as the table source.
 
-4. Copy this command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY table:
+4. Copy this command and replace the **(PAR URL)** with the one you saved earlier. It will be the source for the DELIVERY table:
 
     ```bash
-    <copy>ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "**PAR URL**"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}'; </copy>
+    <copy>ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "(PAR URL)"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}'; </copy>
     ```
 
-5. Your command  should look like the following example
+5. Your command  should look like the following example. Now Execute your modified command
 
     *ALTER TABLE `mysql_customer_orders`.`delivery_orders` ENGINE_ATTRIBUTE='{"file": [{"par": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/4EayDq3tv-D08oTTPja-2XEYZSQ0v5cG87CFNc31wT724QB5R21C1UXbK0_snbZA/n/mysqlpm/b/lakehousefiles/o/"}], "dialect": {"format": "csv", "field_delimiter": "\\t", "record_delimiter": "\\n"}}';*
 
-6. Now load data into the DELIVERY table:
+    **Output**
+
+    ![CONNECT](./images/load-all-delivery-table.png "load all delivery table")
+
+6. Load data into the DELIVERY table:
 
     ```bash
     <copy>alter table delivery_orders secondary_load;</copy>
@@ -283,6 +287,9 @@ We will use the second option which Loads the data by specifying a PAR URL for a
     ```
 
     The DELIVERY table now has 34 million rows.
+8. Output of steps 6 and 7
+
+![CONNECT](./images/load-final-delivery-table.png "load final delivery table")
 
 You may now **proceed to the next lab**
 

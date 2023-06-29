@@ -67,7 +67,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     <copy>USE mysql_customer_orders;</copy>
     ```
 
-4. Create the DELIVERY\_VENDOR table by copying the following command and replace the **PAR URL** with the one you saved earlier. It will be the source for the DELIVERY_VENDOR table:
+4. Create the DELIVERY\_VENDOR table by copying the following command and replace the **(PAR URL)** with the one you saved earlier. It will be the source for the DELIVERY_VENDOR table:
 
     ```bash
     <copy>CREATE TABLE DELIVERY_VENDOR(
@@ -75,10 +75,10 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     vendor_name VARCHAR(200)
     ) 
     ENGINE=lakehouse SECONDARY_ENGINE=RAPID 
-    ENGINE_ATTRIBUTE='{"file": [{"par": "**PAR URL**"}], "dialect": {"format":"parquet"}}';</copy>
+    ENGINE_ATTRIBUTE='{"file": [{"par": "(PAR URL)"}], "dialect": {"format":"parquet"}}';</copy>
     ```
 
-5. Your command  should look like the following example
+5. Your command  should look like the following example. Now Execute your modified command.
 
     *CREATE TABLE DELIVERY_VENDOR(
     id INTEGER,
@@ -111,6 +111,10 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
     ```bash
     <copy>select * from DELIVERY_VENDOR limit 5;</copy>
     ```
+
+10. Output of steps 5 thru 9
+    ![Connect](./images/create-vendor-table.png " create vendor table")
+
 
 You may now **proceed to the next lab**
 
