@@ -24,10 +24,6 @@
           "filename": "../../create-compute-with-mysqlsh/create-compute-with-mysqlsh.md"
         },
 
-        {
-          "title": "Lab 3: Create and store data for Lakehouse",
-          "filename": "../../create-lakehouse-files/create-lakehouse-files.md"  
-        },
 
         {
           "title": "Lab 4: Add HeatWave Cluster and Test MySQL Shell",
