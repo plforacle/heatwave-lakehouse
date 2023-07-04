@@ -288,19 +288,15 @@ In this lab, you will be guided through the following tasks:
     <summary>Brazil East (Sao Paulo) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
-    <copy>
-    <copy>TBD</copy>
-    </copy>
-    ```
+    <copy>https://objectstorage.sa-saopaulo-1.oraclecloud.com/p/Hhx1BmORRm2T-D45RZShnfReE4LhyeVMQ4WpJ7pR6dS5bf466BhpxHv1i4FXMpnC/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
+     ```
     </details>
 
     <details>
     <summary>Chile (Santiago) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
-    <copy>
     <copy>TBD</copy>
-    </copy>
     ```
     </details>
 
@@ -308,9 +304,7 @@ In this lab, you will be guided through the following tasks:
     <summary>Brazil Southeast (Vinhedo) Region - Copy and paste to PAR Source URL</summary>
     <br>
     ```
-    <copy>
     <copy>TBD</copy>
-    </copy>
     ```
     </details>
 
