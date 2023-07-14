@@ -4,7 +4,7 @@
 
 To load data from Object Storage to HeatWave, you need to specify the location of the file or folder objects in your Object Storage.
 
-1. Use [Resource Principal] (https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/resource-principal-enable.html) - It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure. 
+1. Use [Resource Principal](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/resource-principal-enable.html) - It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure.
 
 2. Use [Pre-Authenticated Request URLs (PARs)](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm) - If you choose to use PARs, we recommend that you use read-only PARs with Lakehouse and specify short expiration dates for your PARs. The expiration dates should align with your loading schedule. 
 
@@ -150,7 +150,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>SELECT log->>"$.sql" AS "Load Script" FROM sys.heatwave_autopilot_report WHERE type = "sql" ORDER BY id;</copy>
     ```
 
-    ![Dryrub script](./images/load-script-dryrun.png "load script dryrun")
+    ![Dryrun script](./images/load-script-dryrun.png "load script dryrun")
 
 8. The execution result conatins the SQL statements needed to create the table and then load this table data from the Object Store into HeatWave.
 
@@ -178,7 +178,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
 
 13. The create command and result should look lie this
 
-    ![Delivery Table creat](./images/create-delivery-table.png "create delivery table")
+    ![Delivery Table create](./images/create-delivery-table.png "create delivery table")
 
 ## Task 4: Load complete DELIVERY table from Object Store into MySQL HeatWave
 
@@ -245,7 +245,7 @@ We will use the second option which Loads the data by specifying a PAR URL for a
     - a. From your OCI console, navigate to your lakehouse-files bucket in OCI.
     - b. Select the folder —> order and click the three vertical dots.
 
-        ![Select  folderT](./images/storage-delivery-orders-folder.png "storage delivery order folder")
+        ![Select  folder](./images/storage-delivery-orders-folder.png "storage delivery order folder")
 
     - c. Click on ‘Create Pre-Authenticated Request’
     - d. Click to select the ‘Objects with prefix’ option under ‘PreAuthentcated Request Target’.

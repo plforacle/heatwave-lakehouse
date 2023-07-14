@@ -40,7 +40,7 @@ In this final task of loading data we will load data into a table DELIVERY_VENDO
 
 10. Click the **Copy** icon to Copy vendor PAR URL.
 
-    ![Copy vendor PAR](./images/storage-create-par-vendor-page-copy.png "storage create par vendors page copy") 
+    ![Copy vendor PAR](./images/storage-create-par-vendor-page-copy.png "storage create par vendors page copy")
 
 11. Save the generated PAR URL; you will need it in the next task
 
