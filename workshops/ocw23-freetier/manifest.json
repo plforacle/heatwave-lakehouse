@@ -25,7 +25,7 @@
         },
         
         {
-          "title": "Lab 3: Create and store data for Lakehouse",
+          "title": "Lab 3: Upload data to Object Storage for HeatWave Lakehouse",
           "filename": "../../create-lakehouse-files/create-lakehouse-files.md"  
         },
 
@@ -35,7 +35,7 @@
         },
         
         {
-          "title": "Lab 5: Load mysql_customer_orders Data into HeatWave Cluster ",
+          "title": "Lab 5: Load data into HeatWave Cluster ",
           "filename": "../../load-db-heatwave-cluster/load-db-heatwave-cluster.md"
         },
 

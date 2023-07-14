@@ -2,10 +2,13 @@
 
 ## Introduction
 
-In this lab you will load data from object storage into HeatWave.
+To load data from Object Storage to HeatWave, you need to specify the location of the file or folder objects in your Object Storage.
 
-There are two ways in which you can specify a location for the folder or file (or files) that constitute the table you want to load into HeatWave. One is by using Resource Principal. It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure.
-The second way is by using Pre-Authenticated Request URLs. For more information on creating PARS, see Using PARs. If you choose to use PAR, we recommend that you use read-only PARs with Lakehouse and that you specify short expiration dates on your PARs. The expiration dates should align with your loading schedule. Since we are using a sample data set, we will make use of PAR in this LiveLab. We already have several tables available in HeatWave that have been loaded from MySQL InnoDB storage.
+1. Use [Resource Principal] (https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/resource-principal-enable.html) - It is recommended that you use Resource Principal-based approach for access to data in Object Storage for more sensitive data as this approach is more secure. 
+
+2. Use [Pre-Authenticated Request URLs (PARs)](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm) - If you choose to use PARs, we recommend that you use read-only PARs with Lakehouse and specify short expiration dates for your PARs. The expiration dates should align with your loading schedule. 
+
+Since we are using a sample data set, we will make use of PAR in this LiveLab. We already have several tables available in HeatWave that have been loaded from MySQL.
 
 We will now load the DELIVERY_ORDERS table from the Object Store. This is a large table with 30 million rows and contains information about the delivery vendor for orders.
 
@@ -71,7 +74,7 @@ We will now load the DELIVERY_ORDERS table from the Object Store. This is a larg
     <copy>USE mysql_customer_orders;</copy>
     ```
 
-4. TO see a list of the tables available in the mysql\_customer\_orders schema
+4. To see a list of the tables available in the mysql\_customer\_orders schema
 
     Enter the following command at the prompt
 

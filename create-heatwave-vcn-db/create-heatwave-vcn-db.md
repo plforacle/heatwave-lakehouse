@@ -179,7 +179,7 @@ In this lab, you will be guided through the following tasks:
     Enter Description
 
     ```bash
-    <copy>MySQL Database Service HeatWave Instance</copy>
+    <copy>MySQL DB for HeatWave</copy>
    ```
 
     ![HeatWave credentials](./images/mysql-heatwave-basic.png "HeatWave Basic")
@@ -213,7 +213,7 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave AD choice](./images/mysql-avail-domain.png "mysql availability domain ")
 
-10. On Configure hardware, keep default shape as **MySQL.HeatWave.VM.Standard.E3**
+10. On Configure hardware, keep default shape as **MySQL.HeatWave.VM.Standard**
 
     Data Storage Size (GB) Set value to:  **1024**
 
@@ -325,7 +325,7 @@ In this lab, you will be guided through the following tasks:
 
 20. The state 'Active' indicates that the DB System is ready for use
 
-    On HeatWave-HW Page, check the MySQL Endpoint (Private IP Address)
+    On heatwave-db Page, check the Endpoint (Private IP Address)
 
     ![HeatWave create complete](./images/mysql-heatwave-active.png"mysql heatwave active ")
 
