@@ -53,6 +53,11 @@
           "title": "Lab 8: Develop MySQL HeatWave Apps with LAMP (Bonus)",
           "filename": "../../develop/develop.md"
         }, 
+
+        {
+          "title": "Lab9: Stop OCI Services",
+          "filename": "../../stop-services/stop-services.md"
+        },
       
         {
             "title": "Need Help?",
