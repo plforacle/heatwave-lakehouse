@@ -14,14 +14,13 @@ _Estimated Time:_ 5 minutes
 In this lab, you will be guided through the following task:
 
 - Stop HeatWave Database Instance
-- Stop OAC Instance
 - Stop Compute Instance
 
 ### Prerequisites
 
 - An Oracle Trial or Paid Cloud Account
 - Some Experience with MySQL Shell
-- Completed Lab 1 , 5 , 6
+- Completed Lab1 and Lab2
 
 ## Task 1: Stop HEATWAVE-DB Database Instance
 
@@ -38,19 +37,8 @@ In this lab, you will be guided through the following task:
 4. In the displayed **Stop DB system** dialog box, click the  **Stop** button.
     ![mysql system stop](./images/mysql-system-stop.png " mysql system stop")
 
-## Task 2: Stop hwoac Oracle Anlytics Cloud Instance
 
-1. Open the navigation menu  
-    - Analytics & AI
-    - Analytics Clouds
-
-2. Choose the **turbo** Compartment. A list of OAC instances is displayed.
-    ![navigation OAC instance](./images/navigation-oac.png "navigation OAC instance")
-
-3. In the list of OAC Instances, click the **hwoac** instance. click **Pause**.
-    ![OAC stop](./images/oac-instance-pause.png "OAC stop")
-
-## Task 3: Stop HEATWAVE-Client Compute Instance
+## Task 2: Stop HEATWAVE-Client Compute Instance
 
 1. Open the navigation menu  
     - Compute
