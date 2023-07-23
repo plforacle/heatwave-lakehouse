@@ -10,6 +10,7 @@ _Estimated Time:_ 20 minutes
 
 In this lab, you will be guided through the following tasks:
 
+- Create a Compartment
 - Create a Virtual Cloud Network
 - Configure a security list to allow MySQL incoming connections
 - Create a MySQL Database for HeatWave DB System while loading the DB Data
