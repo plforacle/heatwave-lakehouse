@@ -68,7 +68,7 @@ A set of files have been created for you to use in this workshop. You will creat
 2. Under Object Storage, click Buckets
     ![bucket menu](./images/cloud-storage-menu.png "cloud storage menu")
 
-    **NOTE:** Ensure the correct Compartment is selected : Select **root**
+    **NOTE:** Ensure the correct Compartment is selected : Select **lakehouse**
 
 3. Click Create Bucket. The Create Bucket pane is displayed.
 
