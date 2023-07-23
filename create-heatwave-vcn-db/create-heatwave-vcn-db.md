@@ -40,7 +40,7 @@ In this lab, you will be guided through the following tasks:
     Description:
 
     ```bash
-    <copy>Compartment for Turbocharge Business Insights with MySQL Database workshop </copy>
+    <copy>Compartment for Lakehouse with MySQL Database workshop </copy>
     ```
 
 4. The **Parent Compartment** should be **lakehouse** and click **Create Compartment**
