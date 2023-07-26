@@ -30,7 +30,7 @@
         },
 
         {
-          "title": "Lab 4: Add HeatWave Cluster and Test MySQL Shell",
+          "title": "Lab 4: Add HeatWave Cluster to the DB sytem",
           "filename": "../../add-heatwave-cluster/add-heatwave-cluster.md"
         },
         
