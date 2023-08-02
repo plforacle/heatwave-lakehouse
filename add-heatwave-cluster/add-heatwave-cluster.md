@@ -67,7 +67,14 @@ In this lab, you will be guided through the following task:
         ```bash
         <copy>show databases;</copy>
         ```
+
         ![Database Schema List](./images/list-schemas-after.png "list schemas second view")
+
+    - d. Change to SQL mode
+
+        ```bash
+        <copy>\sql</copy>
+        ```
 
 5. View  the mysql\_customer\_orders total records per table in
 

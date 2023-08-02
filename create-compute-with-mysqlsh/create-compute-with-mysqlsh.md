@@ -48,7 +48,9 @@ The Cloud Shell machine is a small virtual machine running a Bash shell which yo
 
     ![Generate SSH Key](./images/ssh-keygen.png "ssh keygen ")
 
-3. The public  and  private SSH keys  are stored in ~/.ssh/id_rsa.pub.
+3. The SSH keys are stored as follows:
+    - public SSH key stored in ~/.ssh/id_rsa.pub.
+    - private SSH keys stored in ~/.ssh/id_rsa
 
 4. Examine the two files that you just created.
 
@@ -62,7 +64,17 @@ The Cloud Shell machine is a small virtual machine running a Bash shell which yo
 
     ![SSH files list](./images/ssh-list.png "ssh list ")
 
-    Note in the output there are two files, a *private key:`id_rsa` and a public key: `id_rsa.pub`. Keep the private key safe and don't share its content with anyone. The public key will be needed for various activities and can be uploaded to certain systems as well as copied and pasted to facilitate secure communications in the cloud.
+    **Note** in the output there are two files, a *private key:`id_rsa` and a public key: `id_rsa.pub`. Keep the private key safe and don't share its content with anyone. The public key will be needed for various activities and can be uploaded to certain systems as well as copied and pasted to facilitate secure communications in the cloud.
+
+5. To asign the right permissions to your SSH keys, run the following command:
+
+    ```bash
+    <copy>chmod 600 id_rsa.pub</copy>
+    ```
+
+    ```bash
+    <copy>chmod 600 id_rsa</copy>
+    ```
 
 ## Task 2: Copy public SSH key value to Notepad
 
