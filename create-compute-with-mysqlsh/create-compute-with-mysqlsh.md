@@ -125,7 +125,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
 6. Keep the selected Image, Oracle Linux 8
 
-      ![Use Linux OS](./images/compute-oracle-linux.png "compute oracle linux")  
+    ![Use Linux OS](./images/compute-oracle-linux.png "compute oracle linux")  
 
 7. Change the Instance Shape:
     - Click **Change shape** button
@@ -162,11 +162,11 @@ You will need a compute Instance to connect to your brand new MySQL database.
     - Go to Navigation Menu
             Compute
             Instances
-    ![Navigate to Compute ](./images/compute-list.png "compute list")
+        ![Navigate to Compute ](./images/compute-list.png "compute list")
 
     - Click the `heatwave-cient` Instance link
 
-    ![Compute Instance List](./images/compute-running.png "compute public ip")
+        ![Compute Instance List](./images/compute-running.png "compute public ip")
 
     - Copy `heatwave-cient` plus  the `Public IP Address` to the notepad
 
@@ -176,14 +176,14 @@ You will need a compute Instance to connect to your brand new MySQL database.
             Databases
             MySQL
 
-     ![Database list](./images/db-list.png "db list")
+        ![Database list](./images/db-list.png "db list")
 
     - Click the `heatwave-db` Database System link
 
-     ![Active Database](./images/mysql-heatwave-active.png "db active ")
+        ![HeatWave create complete](./images/mysql-heatwave-active.png"mysql heatwave active ")
 
-    - Copy `heatwave-db` plus the `Private IP Address` to the notepad
-
+    - Select the **Connections** tab and copy `heatwave-db` plus the `Private IP Address` to the notepad
+        ![HeatWave create complete connection](./images/mysql-heatwave-connection-tab.png"mysql heatwave connection ")
 3. Indicate the location of the private key you created earlier with **heatwave-client**.
 
     Enter the username **opc** and the Public **IP Address**.

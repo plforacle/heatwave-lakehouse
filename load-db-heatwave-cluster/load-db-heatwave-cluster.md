@@ -53,6 +53,16 @@ In this lab, you will be guided through the following task:
 
     ![Cluster load end](./images/load-cluster-end.png "load cluster end")
 
+- Auto Parallel Load command Result highlights:
+
+    - a. Load analysis box: shows the number of tables/columns being loaded
+
+    - b. Capacity estimation box: showis estimated memory and load time
+
+    - c. Loading table boxes: use different thread to load based on the table
+
+    - d. Load summary box: shows the actual load time
+
 7. Verify that the tables are loaded in the HeatWave cluster. Loaded tables have an AVAIL_RPDGSTABSTATE load status.
 
     ```bash
