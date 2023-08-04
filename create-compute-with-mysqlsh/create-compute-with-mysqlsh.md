@@ -168,7 +168,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
         ![Compute Instance List](./images/compute-running.png "compute public ip")
 
-    - Copy `heatwave-cient` plus  the `Public IP Address` to the notepad
+    - Copy the compute name `heatwave-cient`  and  the `Public IP Address` to the notepad
 
 2. Copy the private IP address of the active MySQl Database heatwave-client Service Instance to your notepad
 
@@ -182,7 +182,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
         ![HeatWave create complete](./images/mysql-heatwave-active.png"mysql heatwave active ")
 
-    - Select the **Connections** tab and copy `heatwave-db` plus the `Private IP Address` to the notepad
+    - Select the **Connections** tab, copy the database nane `heatwave-db`  and the `Private IP Address` to the notepad
         ![HeatWave create complete connection](./images/mysql-heatwave-connection-tab.png"mysql heatwave connection ")
 3. Indicate the location of the private key you created earlier with **heatwave-client**.
 
