@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Analyze Data at Web Scale in Object Store with MySQL HeatWave Lakehouse",
+  "workshoptitle": "Analyze data at scale in object storage with MySQL HeatWave Lakehouse - OAC",
     "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
         {
@@ -15,7 +15,7 @@
         },
 
         {
-          "title": "Lab 1: Create Compartment, VCN and MySQL HeatWave DB ",
+          "title": "Lab 1: Create Compartment, VCN and MySQL HeatWave DB System",
           "filename": "../../create-heatwave-vcn-db/create-heatwave-vcn-db.md"
         },
 
@@ -50,12 +50,23 @@
         },
 
         {
-          "title": "Lab 8: (Bonus) Develop MySQL HeatWave Apps with LAMP",
-          "filename": "../../develop/develop.md"
-        }, 
+          "title": "Lab 8: (Bonus)  Create Oracle Analytics Cloud Instance",
+          "filename": "../../create-oac-instance/create-oac-instance.md"  
+        },
 
         {
-          "title": "Lab9: Stop OCI Services",
+          "title": "Lab 9:  (Bonus)  Create datasets in Oracle Analytics Cloud ",
+          "filename": "../../create-oac-dataset/create-oac-dataset.md"
+        },
+
+        {
+          "title": "Lab 10: (Bonus)  Build a real-time dashboard in Oracle Analytics Cloud with MySQL HeatWave ",
+          "filename": "../../visualize-oac/visualize-oac.md"
+        },
+
+
+        {
+          "title": "Lab11: Stop OCI Services",
           "filename": "../../stop-services/stop-services.md"
         },
 
@@ -63,10 +74,6 @@
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
-        },
-
-        {   "title": "Oracle CloudWorld 2023 - Support", 
-            "filename": "https://oracle-livelabs.github.io/common/support/ocwsupportlab/ocwsupportlab.md" 
         }
     ]
 }

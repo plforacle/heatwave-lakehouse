@@ -16,9 +16,10 @@ HeatWave Lakehouse. The deployment goals are:
 
 _Estimated Time:_ 2 hours
 
-Watch the video below for a quick walk-through of the lab.
+<!--- 
+Watch the video below for a quick walk-through of the lab. 
 [Analyze Data at Web Scale in Object Store with MySQL HeatWave Lakehouse](videohub:1_sokyn79m)
-
+--->
 ### About Product/Technology
 
 
