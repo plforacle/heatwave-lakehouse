@@ -238,12 +238,23 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave AD choice](./images/mysql-avail-domain.png "mysql availability domain ")
 
-10. On Configure hardware, keep default shape as **MySQL.HeatWave.VM.Standard**
+10. On Configure hardware: 
+    
+    Shape details
+    - Select Shape: MySQL.2
+    - Set ECPU count: 2
+    - Set Memory size: 16 GB
+    - Set Max network bandwidth: 1Gbps
 
-    Data Storage Size (GB) Set value to:  **1024**
+    HeatWave cluster configuration
+    - Select Shape: HeatWave.32GB
+    - Set Memory: 32 GB
+    - Set Nodes:        1
+    - Set HeatWave Lakehouse:Enabled
 
+    Data Storage Size (GB) Set value to:  **50**
     ```bash
-    <copy>1024</copy>
+    <copy>50</copy>
     ```
 
     ![HeatWave hardware selection](./images/mysql-configure-hardware.png "mysql hardware ")
@@ -263,7 +274,7 @@ In this lab, you will be guided through the following tasks:
     ![HeatWave add host](./images/mysql-host.png "mysql host ")
 14. Go to the Configuration tab. Click on Select a MySQL version: Select the latest MySQL version of the DB system.
 
-    ![Select mysql version](./images/mysql-configuration-version.png "Select mysql version")
+    ![Select mysql version](./images/mysql-configuration-version.png "Select latest MySQL version")
 
 15. Select the Data Import tab.
 
