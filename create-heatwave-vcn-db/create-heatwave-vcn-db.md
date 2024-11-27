@@ -293,7 +293,7 @@ In this lab, you will be guided through the following tasks:
     <br>
     ```
     <copy>
-   https://objectstorage.us-ashburn-1.oraclecloud.com/p/nBukCV-9CG2pE9gOu8IGkdKLP9y15nK904Gl6G4fBh75I0lIgITozmLmNGMZ713t/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/
+   https://objectstorage.us-ashburn-1.oraclecloud.com/p/e9-qd9eqC2gatEl4qqsRD4L_mqn433tr00ALKmYzh8AuTQ-drS1thJvgLoz64-vF/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_11272024/
     </copy>
     ```
     
