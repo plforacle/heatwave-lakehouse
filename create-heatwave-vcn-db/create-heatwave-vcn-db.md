@@ -293,35 +293,10 @@ In this lab, you will be guided through the following tasks:
     <br>
     ```
     <copy>
-    https://objectstorage.us-ashburn-1.oraclecloud.com/p/0pZRzTl1hFLchwAcornQVePE7eXxp1u6rjVVF3i7a5qN7HASVk4CtTQ9BK9y4xIG/n/mysqlpm/b/plf_mysql_customer_orders/o/mco_nocoupon_dump_05242023/
+   https://objectstorage.us-ashburn-1.oraclecloud.com/p/nBukCV-9CG2pE9gOu8IGkdKLP9y15nK904Gl6G4fBh75I0lIgITozmLmNGMZ713t/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/
     </copy>
     ```
-    </details>
-
-    <details>
-    <summary>US West (Phoenix) Region - Copy and paste to PAR Source URL</summary>
-    <br>
-    ```
-    <copy>https://objectstorage.us-phoenix-1.oraclecloud.com/p/mUzBCdSGiskSfFH0X8h5rRXV7GN3k0wqXeY-K3A1V7PBt_9_O2nbS2U1HO3nOqt_/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
-    ```
-    </details>
-
-    <details>
-    <summary>US West (San Jose) Region - Copy and paste to PAR Source URL</summary>
-    <br>
-    ```
-    <copy>https://objectstorage.us-sanjose-1.oraclecloud.com/p/WVEfexlDvAa_wJQFA5zl0Yc6k0hBIfMZEk2xu898A9GhNgaLIJFm2WELR5tK_RNA/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
-    ```
-    </details>
-    ## Latin America (LAD)
-    **Tenancy Regions** Please select the same region that you are creating **heatwave-db** in
-    <details>
-    <summary>Brazil East (Sao Paulo) Region - Copy and paste to PAR Source URL</summary>
-    <br>
-    ```
-    <copy>https://objectstorage.sa-saopaulo-1.oraclecloud.com/p/Hhx1BmORRm2T-D45RZShnfReE4LhyeVMQ4WpJ7pR6dS5bf466BhpxHv1i4FXMpnC/n/mysqlpm/b/mysql_customer_orders/o/mco_nocoupon_dump_05242023/</copy>
-     ```
-    </details>
+    
 
 18. If your OCI Region is not listed in step 16, don't worry, You will be able to load the DB Data in Lab 4 Task 1. Please skip to step 19.
 
