@@ -208,10 +208,7 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave credentials](./images/mysql-heatwave-basic.png "HeatWave Basic")
 
-6. Select **“Standalone”** and enable **“Configure MySQL HeatWave”**
-    ![HeatWave Type selection](./images/mysql-heatwave-system-selection.png "mysql heatwave system selection")
-
-7. Create Administrator Credentials
+6. Create Administrator Credentials
 
     **Enter Username** (write username to notepad for later use)
     - **Note**: user name is case sensitive so use **admin** to match the the labs' connect string example
@@ -221,6 +218,9 @@ In this lab, you will be guided through the following tasks:
     **Confirm Password** (value should match password for later use)
 
     ![HeatWave password](./images/mysql-password.png "mysql password ")
+
+7. Select **“Standalone”** 
+    ![HeatWave Type selection](./images/mysql-heatwave-system-selection.png "mysql heatwave system selection")
 
 8. On Configure networking, keep the default values
 
@@ -238,7 +238,7 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave AD choice](./images/mysql-avail-domain.png "mysql availability domain ")
 
-10. On Configure hardware: 
+10. On Configure hardware: Select the "Enable HeatWave cluster"
     
     Shape details
     - Select Shape: MySQL.2
@@ -252,10 +252,8 @@ In this lab, you will be guided through the following tasks:
     - Set Nodes:        1
     - Set HeatWave Lakehouse:Enabled
 
-    Data Storage Size (GB) Set value to:  **50**
-    ```bash
-    <copy>50</copy>
-    ```
+    Data Storage Size (GB) Set value to: 50
+
 
     ![HeatWave hardware selection](./images/mysql-configure-hardware.png "mysql hardware ")
 
@@ -272,7 +270,7 @@ In this lab, you will be guided through the following tasks:
     ```
 
     ![HeatWave add host](./images/mysql-host.png "mysql host ")
-14. Go to the Configuration tab. Click on Select a MySQL version: Select the latest MySQL version of the DB system.
+14. Go to the Configuration tab. Click on Select a MySQL version: Select the latest Innovation MySQL version of the DB system.
 
     ![Select mysql version](./images/mysql-configuration-version.png "Select latest MySQL version")
 
@@ -304,11 +302,9 @@ In this lab, you will be guided through the following tasks:
 
     ![HeatWave PAR Import](./images/mysql-data-import.png "mysql data import ")
 
-20. Review **Create MySQL DB System**  Screen
+20. Click the '**Create**' button
 
-    ![HeatWave create button](./images/mysql-create-button.png "mysql create dbbutton")
-
-    Click the '**Create**' button
+   ![mysql creare button ](./images/mysql-create-button.png "mysql creare button")
 
 21. The New MySQL DB System will be ready to use after a few minutes
 
