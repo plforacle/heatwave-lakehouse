@@ -239,7 +239,7 @@ In this lab, you will be guided through the following tasks:
     ![HeatWave AD choice](./images/mysql-avail-domain.png "mysql availability domain ")
 
 10. On Configure hardware: Select the "Enable HeatWave cluster"
-    
+
     Shape details
     - Select Shape: MySQL.2
     - Set ECPU count: 2
@@ -247,15 +247,15 @@ In this lab, you will be guided through the following tasks:
     - Set Max network bandwidth: 1Gbps
 
     HeatWave cluster configuration
-    - Select Shape: HeatWave.32GB
-    - Set Memory: 32 GB
+    - Select Shape: HeatWave.512GB
+    - Set Memory: 512 GB
     - Set Nodes:        1
     - Set HeatWave Lakehouse:Enabled
 
     Data Storage Size (GB) Set value to: 50
 
 
-    ![HeatWave hardware selection](./images/mysql-configure-hardware.png "mysql hardware ")
+    ![HeatWave hardware selection](./images/mysql-configure-hardware-512.png "mysql hardware ")
 
 11. On Configure Backups, disable 'Enable Automatic Backup'
 
