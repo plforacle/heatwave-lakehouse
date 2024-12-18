@@ -70,10 +70,10 @@ In this lab, you will be guided through the following tasks:
 
 1. Install php:
 
-    a. Install php:7.4
+    a. Install php:8.2
 
     ```bash
-    <copy> sudo dnf module install php:7.4 -y</copy>
+    <copy> sudo dnf install @php:8.2 -y</copy>
     ```
 
     b. Install associated php libraries
